@@ -8,11 +8,11 @@ public class LabThree {
         if (args.length != 1) {
             System.out.println("Please enter one argument on the command line");
         } else {
-            lab.run("some string");
+            lab.run(args[0]);
         }
     }
 
     public void run(String input) {
-        System.out.println("input: test");
+        System.out.println("input: " + input);
     }
 }
