@@ -21,16 +21,19 @@ public class LabFour {
             lab.run(args[0]);
         }
     }
-    public void run(String input) {
-
-        System.out.println("input " + input);
-
+    public void run(String testFile) {
         BufferedReader inputReader = null;
         try {
-            inputReader = new BufferedReader(new FileReader("testFile.txt"));
+            inputReader = new BufferedReader(new FileReader(testFile));
             // code to process the input file
             // declare a string variable to hold the current line
             String line = null;
+
+            while (inputReader.ready()) {
+                //reading through each line
+                line = inputReader.readLine();
+                System.out.println(line);
+            }
 
 
 
