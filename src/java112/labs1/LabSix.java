@@ -13,11 +13,43 @@ public class LabSix {
         // checking for two command line arguments
         // added the second parameter to run the method
         if (args.length != 2) {
-            System.out.println("please enter two arguments on the command line, "
-            + " an input file name and an output file name");
+            System.out.println("Please enter two arguments on the command line, "
+            + "an input file name and an output file name");
         } else {
             lab.run(args[0], args[1]);
         }
     }
-
-}
+    /**
+    *
+    *
+    */
+    public void run(String inputPath, String outputFile) {
+        BufferedReader input = null;
+        PrintWriter output = null;
+        try {
+            input = new BufferedReader(new FileReader(inputPath));
+            output = new PrintWriter(new BufferedWriter(
+                    new FileWriter(outputFile)));
+            while (input.ready()) {
+                output.println(input.readLine());
+            }
+        } catch (FileNotFoundException fileNotFound) {
+            fileNotFound.printStackTrace();
+        } catch (IOException inputOutputException) {
+            inputOutputException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                if (input != null) {
+                    input.close();
+                }
+                if (output != null) {
+                    output.close();
+                }
+            } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            }
+        }
+    }
