@@ -25,6 +25,7 @@ public class LabFive {
     }
     /**
     * Creating the run method that will pass in the inputName and Message
+    * This method will write to a file
     * @param inputName
     * @param message
     */
