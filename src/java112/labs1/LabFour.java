@@ -28,15 +28,12 @@ public class LabFour {
             // code to process the input file
             // declare a string variable to hold the current line
             String line = null;
-
             while (inputReader.ready()) {
                 //reading through each line
                 line = inputReader.readLine();
+                //outputting the text
                 System.out.println(line);
             }
-
-
-
         } catch (FileNotFoundException fileNotFound) {
             fileNotFound.printStackTrace();
         } catch (IOException ioException) {
