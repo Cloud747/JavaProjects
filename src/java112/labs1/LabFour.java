@@ -1,6 +1,7 @@
 package java112.labs1;
 
 import java.io.*;
+
 /**
 * Working on Lab four class
 * @author Jpabon
@@ -21,13 +22,21 @@ public class LabFour {
         }
     }
     public void run(String input) {
+
+        System.out.println("input " + input);
+
         BufferedReader inputReader = null;
         try {
             inputReader = new BufferedReader(new FileReader("testFile.txt"));
             // code to process the input file
+            // declare a string variable to hold the current line
+            String line = null;
+
+
+
         } catch (FileNotFoundException fileNotFound) {
             fileNotFound.printStackTrace();
-        } catch (IOException inputOutputException) {
+        } catch (IOException ioException) {
             ioException.printStackTrace();
         } catch (Exception exception) {
             exception.printStackTrace();
