@@ -2,7 +2,7 @@ package java112.labs1;
 
 import java.io.*;
 /**
-* Class that will check for
+* Class that will read input file and make a copy on another file.
 * @author jpabon
 *
 */
