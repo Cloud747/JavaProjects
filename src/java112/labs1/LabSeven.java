@@ -7,6 +7,14 @@ import java.io.*;
 *
 * @author jpabon
 */
-public static void main(String[] args) {
+public class LabSeven {
 
+    public static void main(String[] args) {
+        LabSeven lab = new LabSeven();
+
+        //checking for a command line arguement
+        if (args.length != 1) {
+            
+        }
+    }
 }
