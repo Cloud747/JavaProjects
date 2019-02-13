@@ -41,16 +41,17 @@ public class LabSeven {
         list.add("ten");
 
         writeListToOutputFile(outputFile);
+
     }
 
     public void writeListToOutputFile(String outputFile) {
 
         PrintWriter outputWriter = null;
-
-
         try {
             outputWriter = new PrintWriter(new BufferedWriter(new FileWriter(outputFile)));
-            outputWriter.println(outputFile);
+            for (String element : list) {
+                outputWriter.println(element);
+            }
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
         } catch (Exception exception) {
