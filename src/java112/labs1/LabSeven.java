@@ -1,6 +1,7 @@
 package java112.labs1;
 
 import java.io.*;
+import java.util.*;
 
 /**
 * Creating the class for LabSeven
@@ -11,6 +12,9 @@ public class LabSeven {
 
     public static void main(String[] args) {
         LabSeven lab = new LabSeven();
+        List<String> list = new ArrayList<String>();
+
+        list.add()
 
         //checking for a command line arguement
         if (args.length != 1) {
@@ -20,4 +24,8 @@ public class LabSeven {
             lab.run(args[0]);
         }
     }
+    public void run(String outputFile) {
+        
+    }
+
 }
