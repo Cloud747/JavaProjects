@@ -46,6 +46,8 @@ public class LabSeven {
     public void writeListToOutputFile(String outputFile) {
 
         PrintWriter outputWriter = null;
+
+
         try {
             outputWriter = new PrintWriter(new BufferedWriter(new FileWriter(outputFile)));
             outputWriter.println(outputFile);
