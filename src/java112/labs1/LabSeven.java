@@ -9,7 +9,7 @@ import java.util.*;
 * @author jpabon
 */
 public class LabSeven {
-    List<String> list = new ArrayList<String>();
+    List<String> list;
 
     public static void main(String[] args) {
         LabSeven lab = new LabSeven();
@@ -22,8 +22,12 @@ public class LabSeven {
             lab.run(args[0]);
         }
     }
+    /**
+    *
+    * @param outputFile
+    */
     public void run(String outputFile) {
-
+        list = new ArrayList<String>();
 
         list.add("one");
         list.add("two");
@@ -35,7 +39,24 @@ public class LabSeven {
         list.add("eight");
         list.add("nine");
         list.add("ten");
-    }
-    public void writeListToOutputFile
 
+        writeListToOutputFile(outputFile);
+    }
+
+    public void writeListToOutputFile(String outputFile) {
+
+        PrintWriter outputWriter = null;
+        try {
+            outputWriter = new PrintWriter(new BufferedWriter(new FileWriter(outputFile)));
+            outputWriter.println(outputFile);
+        } catch (IOException inputOutputException) {
+            inputOutputException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        } finally {
+            if (outputWriter != null) {
+                outputWriter.close();
+            }
+        }
+    }
 }
