@@ -12,9 +12,6 @@ public class LabSeven {
 
     public static void main(String[] args) {
         LabSeven lab = new LabSeven();
-        List<String> list = new ArrayList<String>();
-
-        list.add()
 
         //checking for a command line arguement
         if (args.length != 1) {
@@ -25,7 +22,18 @@ public class LabSeven {
         }
     }
     public void run(String outputFile) {
-        
+        List<String> list = new ArrayList<String>();
+
+        list.add("one");
+        list.add("two");
+        list.add("three");
+        list.add("four");
+        list.add("five");
+        list.add("six");
+        list.add("seven");
+        list.add("eight");
+        list.add("nine");
+        list.add("ten");
     }
 
 }
