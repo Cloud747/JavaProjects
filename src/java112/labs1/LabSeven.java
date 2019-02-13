@@ -36,5 +36,6 @@ public class LabSeven {
         list.add("nine");
         list.add("ten");
     }
+    public void writeListToOutputFile
 
 }
