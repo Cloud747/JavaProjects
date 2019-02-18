@@ -1,4 +1,6 @@
 package java112.analyzer;
+
+
 /**
 *
 * @author jpabon
@@ -7,8 +9,8 @@ package java112.analyzer;
 public class FileAnalysis {
 
     private static final int VALID_ARGUMENT_NUMBER_COUNT = 1;
-    private SummaryAnalyzer summaryAnalyzer;
-    private DistinctAnalyzer distinctAnalyzer;
+    private String summaryAnalyzer;
+    private String distinctAnalyzer;
 
     /**
     *
