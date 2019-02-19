@@ -11,8 +11,8 @@ import java.util.*;
 public class FileAnalysis {
 
     private static final int VALID_ARGUMENT_NUMBER_COUNT = 1;
-    private FileSummaryAnalyzer fileSummaryAnalyzer;
-    private DistinctTokenAnalyzer distinctTokenAnalyzer;
+    private summaryAnalyzer;
+    private distinctAnalyzer;
 
     /**
     *
