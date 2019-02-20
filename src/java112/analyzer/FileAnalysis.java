@@ -25,6 +25,8 @@ public class FileAnalysis {
             System.out.println("Please enter the right input");
             return;
         }
+
+    }
         /**
         * @param args
         *
@@ -38,7 +40,7 @@ public class FileAnalysis {
         /**
         *
         * @param inputfilePaths
-        * obtained this code from my Lab four 
+        * obtained this code from my Lab four
         */
         public void run(String inputFilePath) {
             BufferedReader inputReader = null;
@@ -69,5 +71,4 @@ public class FileAnalysis {
                 }
             }
         }
-    }
 }
