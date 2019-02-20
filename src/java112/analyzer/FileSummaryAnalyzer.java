@@ -33,15 +33,15 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     *
     */
     public void displaySummary(PrintWriter writer) {
-        File f = new File(this.inputFilePath);
+        File f = new File("summary.txt");
         writer.println("Application: Project 1 Application");
         writer.println("Author: Jonathan Pabon");
         writer.println("Author's Email: jpabon@madisoncollege.edu");
-        writer.println("File: " + );
+        writer.println("File: " + "Summary.txt");
         writer.println("Date of analysis: " + new Date());
         writer.println("Last Modified: " + f.lastModified());
         writer.println("File Size: " + f.length());
         writer.println("File URI: file:/home/student/jonny-pabon.txt");
-        writer.println("Total tokens: " + );
+        writer.println("Total tokens: " + getTotalTokenCount());
     }
 }

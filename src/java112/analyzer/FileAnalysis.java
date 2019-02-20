@@ -31,29 +31,30 @@ public class FileAnalysis {
         * @param args
         *
         */
-        void openInputFile(String inputFilePath) {
-
-        }
-        void writeOutputFiles() {
-            this.generateOutputFile();
+        public void writeOutputFiles() {
+            summaryAnalyzer.generateOutputFile();
+            DistinctAnalyzer.generateOutputFile();
         }
         /**
         *
         * @param inputfilePaths
-        * obtained this code from my Lab four
+        * obtained this code from my Lab four and obtained loop example from mkyong.com
         */
-        public void run(String inputFilePath) {
+        public void openInputFile(String inputFilePath) {
             BufferedReader inputReader = null;
             try {
-                inputReader = new BufferedReader(new FileReader(inputFilePath));
+                inputReader = new BufferedReader(new FileReader("summary.txt"));
                 // code to process the input file
                 // declare a string variable to hold the current line
                 String line = null;
                 while (inputReader.ready()) {
                     //reading through each line
                     line = inputReader.readLine();
-                    //outputting the text
-                    System.out.println(line);
+                    String[] output = line.split("\\W");
+                    for (int i = 0; i < output.length; i++) {
+                        System.out.println(line);
+                    }
+
                 }
             } catch (FileNotFoundException fileNotFound) {
                 fileNotFound.printStackTrace();
