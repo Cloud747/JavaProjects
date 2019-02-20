@@ -12,16 +12,16 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
 
     private int totalTokensCount;
 
-    public void FileSummaryAnalyzer() {
-
-    }
     public int getTotalTokenCount() {
         return totalTokensCount;
+    }
+    public void FileSummaryAnalyzer() {
+
     }
     void processToken(String token) {
 
     }
-    void generateOutputFile(String inputfilePath, String outputFilePath){
-        
+    void generateOutputFile(String inputfilePath, String outputFilePath) {
+
     }
 }
