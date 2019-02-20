@@ -32,8 +32,8 @@ public class FileAnalysis {
         *
         */
         public void writeOutputFiles() {
-            summaryAnalyzer.generateOutputFile();
-            DistinctAnalyzer.generateOutputFile();
+            FileSummaryAnalyzer.generateOutputFile();
+            DistinctTokenAnalyzer.generateOutputFile();
         }
         /**
         *
@@ -51,10 +51,6 @@ public class FileAnalysis {
                     //reading through each line
                     line = inputReader.readLine();
                     String[] output = line.split("\\W");
-                    for (int i = 0; i < output.length; i++) {
-                        System.out.println(line);
-                    }
-
                 }
             } catch (FileNotFoundException fileNotFound) {
                 fileNotFound.printStackTrace();
