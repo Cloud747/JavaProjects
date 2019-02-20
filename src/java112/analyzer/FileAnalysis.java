@@ -11,8 +11,9 @@ import java.util.*;
 public class FileAnalysis {
 
     private static final int VALID_ARGUMENT_NUMBER_COUNT = 1;
-    private summaryAnalyzer;
-    private distinctAnalyzer;
+
+    private FileSummaryAnalyzer fileSummaryObject = new FileSummaryAnalyzer();
+    private DistinctTokenAnalyzer distinctTokenObject = new DistinctTokenAnalyzer();
 
     /**
     *
@@ -24,8 +25,8 @@ public class FileAnalysis {
             System.out.println("Please enter the right input");
             return;
         }
-        fileSummaryAnalyzer = new summaryAnalyzer();
-        distinctTokenAnalyzer = new distinctAnalyzer();
+        fileSummaryObject = new summaryAnalyzer();
+        distinctTokenObject = new distinctAnalyzer();
 
     }
 }

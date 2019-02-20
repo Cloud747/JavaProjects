@@ -1,10 +1,22 @@
-package java112.projects;
+package java112.analyzer;
 
+import java.io.*;
+import java.util.*;
 /**
 *
 * @author jpabon
 *
 */
+
 public class FileSummaryAnalyzer implements TokenAnalyzer {
-    
+
+    private int totalTokensCount;
+
+    public void FileSummaryAnalyzer() {
+        
+    }
+    public int getTotalTokenCount() {
+        return totalTokensCount;
+    }
+
 }
