@@ -19,19 +19,21 @@ public class FileAnalysis {
     * @param arguments
     *
     */
-    public void analyze(String[] arguments){
+    public void analyze(String[] arguments) {
+
         if (arguments.length != VALID_ARGUMENT_NUMBER_COUNT) {
             System.out.println("Please enter the right input");
             return;
         }
         /**
-        *
-        * @param 
+        * @param
         *
         */
-        private void openInputFile(String inputFilePath) {
+        public void openInputFile(String inputFilePath) {
 
         }
-
+        public void writeOutputFiles() {
+            this.generateOutputFile();
+        }
     }
 }
