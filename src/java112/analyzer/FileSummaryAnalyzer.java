@@ -18,10 +18,10 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     public void FileSummaryAnalyzer() {
 
     }
-    void processToken(String token) {
+    public void processToken(String token) {
 
     }
-    void generateOutputFile(String inputfilePath, String outputFilePath) {
+    public void generateOutputFile(String inputFilePath, String outputFilePath) {
 
     }
 }

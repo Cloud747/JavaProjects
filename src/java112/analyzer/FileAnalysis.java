@@ -24,7 +24,14 @@ public class FileAnalysis {
             System.out.println("Please enter the right input");
             return;
         }
-    
+        /**
+        *
+        * @param 
+        *
+        */
+        private void openInputFile(String inputFilePath) {
+
+        }
 
     }
 }

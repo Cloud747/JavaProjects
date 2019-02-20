@@ -14,12 +14,12 @@ public class DistinctTokenAnalyzer implements TokenAnalyzer {
         return distinctTokens;
     }
     public void DistinctTokenAnalyzer() {
+        distinctTokens = new TreeSet<String>();
+    }
+    public void processToken(String token) {
 
     }
-    void processToken(String token) {
-
-    }
-    void generateOutputFile(String inputfilePath, String outputFilePath) {
+    public void generateOutputFile(String inputFilePath, String outputFilePath) {
 
     }
 }

@@ -9,10 +9,6 @@ import java.util.*;
 */
 
 public interface TokenAnalyzer {
-    void processToken(String token) {
-
-    }
-    void generateOutputFile(String inputfilePath, String outputFilePath){
-        
-    }
+    void processToken(String token);
+    void generateOutputFile(String inputfilePath, String outputFilePath);
 }
