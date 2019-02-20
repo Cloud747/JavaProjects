@@ -35,10 +35,15 @@ public class FileAnalysis {
         void writeOutputFiles() {
             this.generateOutputFile();
         }
-        public void run(String testFile) {
+        /**
+        *
+        * @param inputfilePaths
+        * obtained this code from my Lab four 
+        */
+        public void run(String inputFilePath) {
             BufferedReader inputReader = null;
             try {
-                inputReader = new BufferedReader(new FileReader(testFile));
+                inputReader = new BufferedReader(new FileReader(inputFilePath));
                 // code to process the input file
                 // declare a string variable to hold the current line
                 String line = null;
