@@ -31,9 +31,9 @@ public class FileAnalysis {
         * @param args
         *
         */
-        public void writeOutputFiles() {
-            FileSummaryAnalyzer.generateOutputFile();
-            DistinctTokenAnalyzer.generateOutputFile();
+        public void writeOutputFiles(String inputFilePath) {
+            //this.generateOutputFile(inputFilePath, outputFilePath);
+            //this.generateOutputFile(inputFilePath, outputFilePath);
         }
         /**
         *
@@ -51,6 +51,10 @@ public class FileAnalysis {
                     //reading through each line
                     line = inputReader.readLine();
                     String[] output = line.split("\\W");
+                    for (int i = 0; i < output.length; i++) {
+                        //DistinctTokenAnalyzer.ProcessToken(output[i]);
+                        //FileSummaryAnalyzer.ProcessToken(output[i]);
+                    }
                 }
             } catch (FileNotFoundException fileNotFound) {
                 fileNotFound.printStackTrace();
