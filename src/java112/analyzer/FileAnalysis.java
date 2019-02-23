@@ -2,6 +2,7 @@ package java112.analyzer;
 
 import java.io.*;
 import java.util.*;
+import java.utilities.*;
 
 /**
 *
@@ -25,10 +26,10 @@ public class FileAnalysis {
             System.out.println("Please enter the right input");
             return;
         }
-
+        
     }
         /**
-        * @param args
+        * @param inputFilePath
         *
         */
         public void writeOutputFiles(String inputFilePath) {
