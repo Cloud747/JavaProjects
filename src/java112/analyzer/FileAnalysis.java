@@ -16,12 +16,12 @@ public class FileAnalysis {
     /**
     * A set that will hold all the unique tokens in the input file.
     */
-    private Set<String> distinctTokens;
+    //private Set<String> distinctTokens;
     /**
     *Declaring a list set that will keep tokens in the order they are read from
     * the file.
     */
-    private List<String> tokens;
+    //private List<String> tokens;
 
     private FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
     private DistinctTokensAnalyzer DistinctAnalyzer = new DistinctTokensAnalyzer();
@@ -83,17 +83,18 @@ public class FileAnalysis {
                 line = inputReader.readLine();
                 String[] output = line.split("\\W");
 
-                processTokenArray(tokenArray);
+                processTokens(tokenArray);
             }
         }
         /**
         * Loops through the created array and filters empty tokens
         * @param tokenArray the array of tokens
         */
-        public void processTokenArray(String[] tokenArray) {
-            for (String token : tokenArray) {
-                tokens.add(token);
-                distinctTokens.add(token);
+        public void processTokens(String[] tokenArray) {
+            for (int i = 0; i < output.length; i++) {
+                DistinctTokenAnalyzer.ProcessToken(output[i]);
+                FileSummaryAnalyzer.ProcessToken(output[i]);
+
             }
         }
 }
