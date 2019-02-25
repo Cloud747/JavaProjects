@@ -16,8 +16,8 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     public int getTotalTokenCount() {
         return totalTokensCount;
     }
-    public void FileSummaryAnalyzer() {
-        
+    public FileSummaryAnalyzer() {
+        totalTokensCount = 0;
     }
     public void processToken(String token) {
 
