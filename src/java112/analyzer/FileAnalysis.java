@@ -2,7 +2,7 @@ package java112.analyzer;
 
 import java.io.*;
 import java.util.*;
-import java.utilities.*;
+
 
 /**
 *
@@ -13,7 +13,7 @@ public class FileAnalysis {
 
     private static final int VALID_ARGUMENT_NUMBER_COUNT = 1;
     private FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
-    private DistinctTokenAnalyzer DistinctAnalyzer = new DistinctTokenAnalyzer();
+    private DistinctTokensAnalyzer DistinctAnalyzer = new DistinctTokensAnalyzer();
 
     /**
     *
@@ -26,7 +26,7 @@ public class FileAnalysis {
             System.out.println("Please enter the right input");
             return;
         }
-        
+
     }
         /**
         * @param inputFilePath

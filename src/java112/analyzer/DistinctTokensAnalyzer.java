@@ -6,14 +6,14 @@ import java.util.*;
 *
 *
 */
-public class DistinctTokenAnalyzer implements TokenAnalyzer {
+public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
     private Set<String> distinctTokens;
 
     public Set<String> getDistinctTokens() {
         return distinctTokens;
     }
-    public void DistinctTokenAnalyzer() {
+    public void DistinctTokensAnalyzer() {
         distinctTokens = new TreeSet<String>();
     }
     public void processToken(String token) {

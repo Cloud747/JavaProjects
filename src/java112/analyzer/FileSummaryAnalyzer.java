@@ -17,10 +17,10 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         return totalTokensCount;
     }
     public void FileSummaryAnalyzer() {
-
+        
     }
     public void processToken(String token) {
-        
+
     }
     public void generateOutputFile(String inputFilePath, String outputFilePath) {
 
