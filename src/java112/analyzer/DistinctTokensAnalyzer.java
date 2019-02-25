@@ -20,6 +20,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
 
     }
     public void generateOutputFile(String inputFilePath, String outputFilePath) {
-
+        
     }
+
 }

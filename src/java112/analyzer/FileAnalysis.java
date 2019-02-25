@@ -24,10 +24,10 @@ public class FileAnalysis {
     //private List<String> tokens;
 
     private FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
-    private DistinctTokensAnalyzer DistinctAnalyzer = new DistinctTokensAnalyzer();
+    private DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
 
     /**
-    *
+    * Checking to see if the input is
     * @param arguments
     *
     */
@@ -43,15 +43,21 @@ public class FileAnalysis {
 
         /**
         * @param inputFilePath
+        * @param
         *
         */
         public void writeOutputFiles(String inputFilePath) {
-            //this.generateOutputFile(inputFilePath, outputFilePath);
-            //this.generateOutputFile(inputFilePath, outputFilePath);
+
+            //Declaring the output files for each analyzer class object
+            String summaryOutputPath = "output/summary.txt";
+            String distinctOutputPath = "output/distinct_tokens.txt";
+            //calling each analyzer with the generateOutputFile method
+            summaryAnalyzer.generateOutputFile(inputFilePath, summaryOutputPath);
+            distinctAnalyzer.generateOutputFile(inputFilePath, distinctOutputPath);
         }
         /**
         *
-        * @param inputfilePaths
+        * @param inputfilePath
         * obtained this code from my Lab four and obtained loop example from mkyong.com
         */
         private void openInputFile(String inputFilePath) {
@@ -75,25 +81,34 @@ public class FileAnalysis {
         */
         public void readInputFile(BufferedReader inputReader) throws IOException {
             String line = null;
-            String[] tokenArray = null;
+            //String[] tokenArray = null;
 
-            //Tells the stream that it's ready to be read
-            while (inputReader.ready()) {
+            try {
+                //Tells the stream that it's ready to be read
+                while (inputReader.ready()) {
                 //reading through each line
-                line = inputReader.readLine();
-                String[] output = line.split("\\W");
+                    line = inputReader.readLine();
+                //used for splitting a string into substrings
+                    String[] tokenArray = line.split("\\W");
 
-                processTokens(tokenArray);
+                    processTokens(tokenArray);
+                }
+            }  catch (FileNotFoundException fileNotFound) {
+                fileNotFound.printStackTrace();
+            } catch (IOException inputOutputException) {
+                inputOutputException.printStackTrace();
+            } catch (Exception exception) {
+                exception.printStackTrace();
             }
         }
         /**
-        * Loops through the created array and filters empty tokens
+        * Loops through the created array and filters empty tokens (token is being passed)
         * @param tokenArray the array of tokens
         */
         public void processTokens(String[] tokenArray) {
-            for (int i = 0; i < output.length; i++) {
-                DistinctTokenAnalyzer.ProcessToken(output[i]);
-                FileSummaryAnalyzer.ProcessToken(output[i]);
+            for (int i = 0; i < tokenArray.length; i++) {
+                distinctAnalyzer.processToken(tokenArray[i]);
+                summaryAnalyzer.processToken(tokenArray[i]);
 
             }
         }
