@@ -12,12 +12,13 @@ import java.util.*;
 public class FileSummaryAnalyzer implements TokenAnalyzer {
 
     private int totalTokensCount;
-
     public int getTotalTokenCount() {
         return totalTokensCount;
     }
     public FileSummaryAnalyzer() {
+        int totalTokensCount;
         totalTokensCount = 0;
+
     }
     public void processToken(String token) {
 
