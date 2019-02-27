@@ -6,26 +6,47 @@ import java.util.*;
 /**
 *
 * @author jpabon
-* checked the site
+*
 */
 
 public class FileSummaryAnalyzer implements TokenAnalyzer {
 
     private int totalTokensCount;
-    public int getTotalTokenCount() {
+    public int getTotalTokensCount() {
         return totalTokensCount;
     }
     public FileSummaryAnalyzer() {
-        int totalTokensCount;
+
         totalTokensCount = 0;
 
     }
+    //counting the tokens
     public void processToken(String token) {
-
+        totalTokensCount++;
     }
-    public void generateOutputFile(String inputFilePath, String outputFilePath) {
-
-    }
+    /**
+    *
+    * using bufferedWriter will write the text to an ouput stream
+    * File writer is more efficient
+    */
+    public void generateOutputFile(String inputFilePath, String summaryOutputPath) {
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(new BufferedWriter(new FileWriter(summaryOutputPath)));
+            //writer.println(writer);
+             displaySummary(writer);
+             System.out.println("here");
+        } catch (IOException inputOutputException) {
+            inputOutputException.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        } finally {
+            if (writer != null) {
+                writer.close();
+            }
+          }
+          //displaySummary(writer);
+      }
     /**
     *
     * @param writer
@@ -37,12 +58,12 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         File f = new File("summary.txt");
         writer.println("Application: Project 1 Application");
         writer.println("Author: Jonathan Pabon");
-        writer.println("Author's Email: jpabon@madisoncollege.edu");
-        writer.println("File: " + "Summary.txt");
+        writer.println("Author Email: jpabon@madisoncollege.edu");
+        writer.println("File: " + "summary.txt");
         writer.println("Date of analysis: " + new Date());
         writer.println("Last Modified: " + f.lastModified());
         writer.println("File Size: " + f.length());
         writer.println("File URI: file:/home/student/jonny-pabon.txt");
-        writer.println("Total tokens: " + getTotalTokenCount());
+        writer.println("Total tokens: " + getTotalTokensCount());
     }
 }

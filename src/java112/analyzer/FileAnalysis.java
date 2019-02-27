@@ -12,19 +12,8 @@ import java.util.*;
 public class FileAnalysis {
 
     private static final int VALID_ARGUMENT_NUMBER_COUNT = 1;
-
-    /**
-    * A set that will hold all the unique tokens in the input file.
-    */
-    //private Set<String> distinctTokens;
-    /**
-    *Declaring a list set that will keep tokens in the order they are read from
-    * the file.
-    */
-    //private List<String> tokens;
-
-    private FileSummaryAnalyzer summaryAnalyzer = new FileSummaryAnalyzer();
-    private DistinctTokensAnalyzer distinctAnalyzer = new DistinctTokensAnalyzer();
+    private FileSummaryAnalyzer summaryAnalyzer;
+    private DistinctTokensAnalyzer distinctAnalyzer;
 
     /**
     * Checking to see if the input is
@@ -35,12 +24,12 @@ public class FileAnalysis {
 
         if (arguments.length != VALID_ARGUMENT_NUMBER_COUNT) {
             System.out.println("Please enter the right input");
-            return;
+
+        } else {
+            run();
+            openInputFile(arguments[0]);
         }
-
     }
-    //openInputFile(arguments[0]);
-
         /**
         * @param inputFilePath
         * @param
@@ -63,8 +52,8 @@ public class FileAnalysis {
         private void openInputFile(String inputFilePath) {
             BufferedReader inputReader = null;
             try {
-                inputReader = new BufferedReader(new FileReader("summary.txt"));
-                // code to process the input file
+                inputReader = new BufferedReader(new FileReader(inputFilePath));
+                // code to process the inDistinctTokensAnalyzerput file
                 // declare a string variable to hold the current line
                 readInputFile(inputReader);
             } catch (FileNotFoundException fileNotFound) {
@@ -80,15 +69,15 @@ public class FileAnalysis {
         * @param inputReader the BufferedReader for the input file
         */
         public void readInputFile(BufferedReader inputReader) throws IOException {
+            //Creating this string to point to nothing - more as a storage
             String line = null;
-            //String[] tokenArray = null;
 
             try {
                 //Tells the stream that it's ready to be read
                 while (inputReader.ready()) {
                 //reading through each line
                     line = inputReader.readLine();
-                //used for splitting a string into substrings
+                //used for parsing the tokens
                     String[] tokenArray = line.split("\\W");
 
                     processTokens(tokenArray);
@@ -103,13 +92,17 @@ public class FileAnalysis {
         }
         /**
         * Loops through the created array and filters empty tokens (token is being passed)
+        * processing the tokens
         * @param tokenArray the array of tokens
         */
         public void processTokens(String[] tokenArray) {
             for (int i = 0; i < tokenArray.length; i++) {
                 distinctAnalyzer.processToken(tokenArray[i]);
                 summaryAnalyzer.processToken(tokenArray[i]);
-
             }
+        }
+        public void run() {
+            summaryAnalyzer = new FileSummaryAnalyzer();
+            distinctAnalyzer = new DistinctTokensAnalyzer();
         }
 }
