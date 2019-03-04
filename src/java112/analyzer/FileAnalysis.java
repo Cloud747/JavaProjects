@@ -17,7 +17,7 @@ public class FileAnalysis {
 
     /**
     * Checking to see if the input is
-    * @param arguments
+    * @param arguments the command line arguments
     *
     */
     public void analyze(String[] arguments) {
@@ -31,8 +31,9 @@ public class FileAnalysis {
         }
     }
         /**
+        * This method will ensure the ensure the routing of these files is
+        * correct.
         * @param inputFilePath
-        * @param
         *
         */
         public void writeOutputFiles(String inputFilePath) {
@@ -45,7 +46,6 @@ public class FileAnalysis {
             distinctAnalyzer.generateOutputFile(inputFilePath, distinctOutputPath);
         }
         /**
-        *
         * @param inputfilePath
         * obtained this code from my Lab four and obtained loop example from mkyong.com
         */
@@ -101,6 +101,9 @@ public class FileAnalysis {
                 summaryAnalyzer.processToken(tokenArray[i]);
             }
         }
+        /**
+        * This run method will instantiate the analyzers
+        */
         public void run() {
             summaryAnalyzer = new FileSummaryAnalyzer();
             distinctAnalyzer = new DistinctTokensAnalyzer();

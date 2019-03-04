@@ -2,9 +2,8 @@ package java112.analyzer;
 
 
 /**
-*
 * @author jpabon
-*
+* @param argument this is where the analyze method is being called
 */
 
 public class Driver {

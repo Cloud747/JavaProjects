@@ -15,27 +15,33 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     public int getTotalTokensCount() {
         return totalTokensCount;
     }
+
     public FileSummaryAnalyzer() {
 
         totalTokensCount = 0;
 
     }
-    //counting the tokens
+    /**
+    *
+    * @param token This method will count the tokens.
+    */
     public void processToken(String token) {
         totalTokensCount++;
     }
     /**
-    *
+    * @param inputFilePath
+    * @param summaryOutputPath
     * using bufferedWriter will write the text to an ouput stream
     * File writer is more efficient
     */
     public void generateOutputFile(String inputFilePath, String summaryOutputPath) {
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter(new BufferedWriter(new FileWriter(summaryOutputPath)));
-            //writer.println(writer);
-             displaySummary(writer);
-             System.out.println("here");
+            writer = new PrintWriter(new BufferedWriter(new FileWriter("output/summary.txt")));
+
+
+            displaySummary(writer);
+
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
         } catch (Exception exception) {
@@ -59,7 +65,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         writer.println("Application: Project 1 Application");
         writer.println("Author: Jonathan Pabon");
         writer.println("Author Email: jpabon@madisoncollege.edu");
-        writer.println("File: " + "summary.txt");
+        writer.println("File: " + f.getAbsolutePath());
         writer.println("Date of analysis: " + new Date());
         writer.println("Last Modified: " + f.lastModified());
         writer.println("File Size: " + f.length());

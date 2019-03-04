@@ -26,12 +26,12 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     /**
     * @param String inputFilePath
     * @param String distinctOutputPath
-    * This method generates the output file 
+    * This method generates the output file
     */
     public void generateOutputFile(String inputFilePath, String distinctOutputPath) {
         PrintWriter outputWriter = null;
         try {
-            outputWriter = new PrintWriter(new BufferedWriter(new FileWriter(distinctOutputPath)));
+            outputWriter = new PrintWriter(new BufferedWriter(new FileWriter("output/distinct_tokens.txt")));
             for (String element : distinctTokens) {
                 outputWriter.println(element);
             }
