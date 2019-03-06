@@ -11,12 +11,23 @@ import java.util.*;
 */
 public class FileAnalysis {
 
+    //Creating the constant
     private static final int VALID_ARGUMENT_NUMBER_COUNT = 1;
+    //Creating the variables
     private FileSummaryAnalyzer summaryAnalyzer;
     private DistinctTokensAnalyzer distinctAnalyzer;
-
     /**
-    * Checking to see if the input is
+    * This run method will instantiate the analyzers
+    */
+    public void newObjects() {
+
+        summaryAnalyzer = new FileSummaryAnalyzer();
+        distinctAnalyzer = new DistinctTokensAnalyzer();
+    }
+    /**
+    * This analze method will check to ensure the correct number of input has been made.
+    * It will also call upon the newObjects method. It will then verify the command readLine
+    * argument. The openInputFile is also called here too.
     * @param arguments the command line arguments
     *
     */
@@ -30,7 +41,6 @@ public class FileAnalysis {
             openInputFile(arguments[0]);
         }
     }
-
         /**
         * This method will ensure the ensure the routing of these files is
         * correct.
@@ -47,6 +57,7 @@ public class FileAnalysis {
             distinctAnalyzer.generateOutputFile(inputFilePath, distinctOutputPath);
         }
         /**
+        * Opens the input file and then storing the inputFilePath
         * @param inputfilePath
         * obtained this code from my Lab four and obtained loop example from mkyong.com
         */
@@ -104,13 +115,5 @@ public class FileAnalysis {
                 distinctAnalyzer.processToken(tokenArray[i]);
                 summaryAnalyzer.processToken(tokenArray[i]);
             }
-        }
-        /**
-        * This run method will instantiate the analyzers
-        */
-        public void newObjects() {
-
-            summaryAnalyzer = new FileSummaryAnalyzer();
-            distinctAnalyzer = new DistinctTokensAnalyzer();
         }
 }
