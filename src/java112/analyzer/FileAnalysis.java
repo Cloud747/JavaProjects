@@ -68,9 +68,10 @@ public class FileAnalysis {
         /**
         * Reads through the input file and creates a token array for each line
         * @param inputReader the BufferedReader for the input file
+        * @throws IOException this is used to catch the IOException and handle it
         */
         public void readInputFile(BufferedReader inputReader) throws IOException {
-            
+
             //Creating this string to point to nothing - more as a storage
             String line = null;
 
