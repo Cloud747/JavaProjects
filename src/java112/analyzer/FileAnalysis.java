@@ -5,7 +5,8 @@ import java.util.*;
 
 
 /**
-*
+* This class has several methods that will call the read and write methods along with
+* setting the file route for both the input and output files.
 * @author jpabon
 *
 */
@@ -48,7 +49,8 @@ public class FileAnalysis {
         *
         */
         public void writeOutputFiles(String inputFilePath) {
-
+            //Talked this over with Kevin from class and he gave me some hints on
+            //finding the missing chacter.
             //Declaring the output files for each analyzer class object
             String summaryOutputPath = "output/summary.txt";
             String distinctOutputPath = "/output/distinct_tokens.txt";
