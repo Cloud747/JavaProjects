@@ -1,9 +1,10 @@
 package java112.analyzer;
 
-
 /**
 * @author jpabon
-* @param argument this is where the analyze method is being called
+* The main class creates the object of the fileAnalysis class and then
+* passes an argument to the analyze method.
+* @param argument command line of arguments
 */
 
 public class Driver {

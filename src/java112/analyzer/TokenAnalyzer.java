@@ -5,7 +5,8 @@ import java.util.*;
 /**
 *
 * @author jpabon
-* This will be the holding ground for the many methods and fields
+* This is the creation of the TokenAnalyzer interface.
+* It carries it's abstract methods and will be implemented by two analyzer classes
 */
 
 public interface TokenAnalyzer {

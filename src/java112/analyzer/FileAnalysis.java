@@ -26,10 +26,11 @@ public class FileAnalysis {
             System.out.println("Please enter the right input");
 
         } else {
-            run();
+            newObjects();
             openInputFile(arguments[0]);
         }
     }
+
         /**
         * This method will ensure the ensure the routing of these files is
         * correct.
@@ -39,8 +40,8 @@ public class FileAnalysis {
         public void writeOutputFiles(String inputFilePath) {
 
             //Declaring the output files for each analyzer class object
-            String summaryOutputPath = "output/summary.txt";
-            String distinctOutputPath = "output/distinct_tokens.txt";
+            String summaryOutputPath = "/output/summary.txt";
+            String distinctOutputPath = "/output/distinct_tokens.txt";
             //calling each analyzer with the generateOutputFile method
             summaryAnalyzer.generateOutputFile(inputFilePath, summaryOutputPath);
             distinctAnalyzer.generateOutputFile(inputFilePath, distinctOutputPath);
@@ -69,6 +70,7 @@ public class FileAnalysis {
         * @param inputReader the BufferedReader for the input file
         */
         public void readInputFile(BufferedReader inputReader) throws IOException {
+            
             //Creating this string to point to nothing - more as a storage
             String line = null;
 
@@ -96,6 +98,7 @@ public class FileAnalysis {
         * @param tokenArray the array of tokens
         */
         public void processTokens(String[] tokenArray) {
+
             for (int i = 0; i < tokenArray.length; i++) {
                 distinctAnalyzer.processToken(tokenArray[i]);
                 summaryAnalyzer.processToken(tokenArray[i]);
@@ -104,7 +107,8 @@ public class FileAnalysis {
         /**
         * This run method will instantiate the analyzers
         */
-        public void run() {
+        public void newObjects() {
+
             summaryAnalyzer = new FileSummaryAnalyzer();
             distinctAnalyzer = new DistinctTokensAnalyzer();
         }
