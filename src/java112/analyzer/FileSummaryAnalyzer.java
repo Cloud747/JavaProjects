@@ -39,6 +39,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     * File writer is more efficient
     */
     public void generateOutputFile(String inputFilePath, String summaryOutputPath) {
+        
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(new BufferedWriter(new FileWriter(summaryOutputPath)));

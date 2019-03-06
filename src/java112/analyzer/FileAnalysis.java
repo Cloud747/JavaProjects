@@ -34,11 +34,11 @@ public class FileAnalysis {
     public void analyze(String[] arguments) {
 
         if (arguments.length != VALID_ARGUMENT_NUMBER_COUNT) {
-            System.out.println("Please enter the right input");
 
         } else {
             newObjects();
             openInputFile(arguments[0]);
+            writeOutputFiles(arguments[0]);
         }
     }
         /**
@@ -50,7 +50,7 @@ public class FileAnalysis {
         public void writeOutputFiles(String inputFilePath) {
 
             //Declaring the output files for each analyzer class object
-            String summaryOutputPath = "/output/summary.txt";
+            String summaryOutputPath = "output/summary.txt";
             String distinctOutputPath = "/output/distinct_tokens.txt";
             //calling each analyzer with the generateOutputFile method
             summaryAnalyzer.generateOutputFile(inputFilePath, summaryOutputPath);
