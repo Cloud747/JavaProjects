@@ -45,7 +45,7 @@ public class FileAnalysis {
         /**
         * This method will ensure the ensure the routing of these files is
         * correct.
-        * @param inputFilePath
+        * @param inputFilePath passing in the inputfilepath
         *
         */
         public void writeOutputFiles(String inputFilePath) {
@@ -61,8 +61,8 @@ public class FileAnalysis {
         /**
         * Opens the input file and then storing the inputFilePath
         * obtained this code from my Lab four and obtained loop example from mkyong.com
-        * @param inputfilePath
-        *
+        * @param inputFilePath passing in the inputFilePath 
+        * 
         */
         private void openInputFile(String inputFilePath) {
             BufferedReader inputReader = null;
@@ -100,7 +100,7 @@ public class FileAnalysis {
         }
         /**
         * This method gets called when no empty tokens are found.
-        * @param tokenArray the array of tokens
+        * @param token the tokens passed in.
         */
         public void processTokens(String token) {
                 distinctAnalyzer.processToken(token);
@@ -109,7 +109,7 @@ public class FileAnalysis {
         /**
         * The machine that will check for empty tokens(keeps the distinct_tokens file from starting
         * out with a blank field)
-        * @param tokens
+        * @param tokens the tokens that are passed in are parsed.
         **/
         public void emptyTokenCheck(String[] tokens) {
             //The for loop that will check through the tokens array

@@ -42,22 +42,15 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     * @param summaryOutputPath the output file name
     */
     public void generateOutputFile(String inputFilePath, String summaryOutputPath) {
-        try (
-            BufferedReader input = new BufferedReader(new FileReader(inputFilePath));
-            PrintWriter output = new PrintWriter(new BufferedWriter(
-                    new FileWriter(summaryOutputPath)))
-        ) {
-            while (input.ready()) {
-                output.println(input.readLine());
-            }
-        } catch (FileNotFoundException fileNotFound) {
-            fileNotFound.printStackTrace();
+        try (PrintWriter writer = new PrintWriter(new BufferedWriter(
+                    new FileWriter(summaryOutputPath)))) {
+            //calling the display method to create the summary.txt file
+            displaySummary(writer, inputFilePath);       
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-
     }
     /**
     * This method will display the defined values from the project requirements.
@@ -68,14 +61,16 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     */
 
     public void displaySummary(PrintWriter writer, String inputFilePath) {
-
+        //Using the File and SimpleDateFormat 
         File f = new File(inputFilePath);
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+   
         writer.println("Application: Project 1 Application");
         writer.println("Author: Jonathan Pabon");
         writer.println("Author Email: jpabon@madisoncollege.edu");
         writer.println("File: " + f.getAbsolutePath());
         writer.println("Date of analysis: " + new Date());
-        writer.println("Last Modified: " + f.lastModified());
+        writer.println("Last Modified: " + sdf.format(f.lastModified()));
         writer.println("File Size: " + f.length());
         writer.println("File URI: file:/home/student/jonny-pabon.txt");
         writer.println("Total tokens: " + getTotalTokensCount());

@@ -41,22 +41,19 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     *
     */
     public void generateOutputFile(String inputFilePath, String distinctOutputPath) {
-        //TODO try with resources
-        PrintWriter outputWriter = null;
-
-        try {
-            outputWriter = new PrintWriter(new BufferedWriter(new FileWriter(distinctOutputPath)));
+        try (
+            PrintWriter output = new PrintWriter(new BufferedWriter(
+                    new FileWriter(distinctOutputPath)));
+        ) {
             for (String element : distinctTokens) {
-                outputWriter.println(element);
+            output.println(element);
             }
+        } catch (FileNotFoundException fileNotFound) {
+        fileNotFound.printStackTrace();
         } catch (IOException inputOutputException) {
-            inputOutputException.printStackTrace();
+        inputOutputException.printStackTrace();
         } catch (Exception exception) {
-            exception.printStackTrace();
-        } finally {
-            if (outputWriter != null) {
-                outputWriter.close();
-            }
-        }
+        exception.printStackTrace();
+        }    
     }
 }
