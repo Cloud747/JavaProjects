@@ -35,7 +35,7 @@ public class FileAnalysis {
     public void analyze(String[] arguments) {
 
         if (arguments.length != VALID_ARGUMENT_NUMBER_COUNT) {
-
+            System.out.println("Please enter one argument on the command line, and input file name");
         } else {
             newObjects();
             openInputFile(arguments[0]);
@@ -53,15 +53,16 @@ public class FileAnalysis {
             //finding the missing chacter.
             //Declaring the output files for each analyzer class object
             String summaryOutputPath = "output/summary.txt";
-            String distinctOutputPath = "/output/distinct_tokens.txt";
+            String distinctOutputPath = "output/distinct_tokens.txt";
             //calling each analyzer with the generateOutputFile method
             summaryAnalyzer.generateOutputFile(inputFilePath, summaryOutputPath);
             distinctAnalyzer.generateOutputFile(inputFilePath, distinctOutputPath);
         }
         /**
         * Opens the input file and then storing the inputFilePath
-        * @param inputfilePath
         * obtained this code from my Lab four and obtained loop example from mkyong.com
+        * @param inputfilePath
+        *
         */
         private void openInputFile(String inputFilePath) {
             BufferedReader inputReader = null;
@@ -87,35 +88,35 @@ public class FileAnalysis {
 
             //Creating this string to point to nothing - more as a storage
             String line = null;
-
-            try {
                 //Tells the stream that it's ready to be read
                 while (inputReader.ready()) {
                 //reading through each line
                     line = inputReader.readLine();
                 //used for parsing the tokens
-                    String[] tokenArray = line.split("\\W");
-
-                    processTokens(tokenArray);
+                    String[] tokens = line.split("\\W");
+                    //calling the emptyTokenCheck method which checks for empt
+                    emptyTokenCheck(tokens);
                 }
-            }  catch (FileNotFoundException fileNotFound) {
-                fileNotFound.printStackTrace();
-            } catch (IOException inputOutputException) {
-                inputOutputException.printStackTrace();
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
         }
         /**
-        * Loops through the created array and filters empty tokens (token is being passed)
-        * processing the tokens
+        * This method gets called when no empty tokens are found.
         * @param tokenArray the array of tokens
         */
-        public void processTokens(String[] tokenArray) {
-
-            for (int i = 0; i < tokenArray.length; i++) {
-                distinctAnalyzer.processToken(tokenArray[i]);
-                summaryAnalyzer.processToken(tokenArray[i]);
+        public void processTokens(String token) {
+                distinctAnalyzer.processToken(token);
+                summaryAnalyzer.processToken(token);
+        }
+        /**
+        * The machine that will check for empty tokens(keeps the distinct_tokens file from starting
+        * out with a blank field)
+        * @param tokens
+        **/
+        public void emptyTokenCheck(String[] tokens) {
+            //The for loop that will check through the tokens array
+            for (String element : tokens) {
+                if (element.isEmpty() == false) {
+                    processTokens(element);
+                }
             }
         }
 }
