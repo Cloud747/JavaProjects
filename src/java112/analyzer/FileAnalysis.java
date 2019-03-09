@@ -61,13 +61,12 @@ public class FileAnalysis {
         /**
         * Opens the input file and then storing the inputFilePath
         * obtained this code from my Lab four and obtained loop example from mkyong.com
-        * @param inputFilePath passing in the inputFilePath 
-        * 
+        * @param inputFilePath passing in the inputFilePath
+        *
         */
         private void openInputFile(String inputFilePath) {
-            BufferedReader inputReader = null;
-            try {
-                inputReader = new BufferedReader(new FileReader(inputFilePath));
+            try (
+                BufferedReader inputReader = new BufferedReader(new FileReader(inputFilePath))) {
                 // code to process the inDistinctTokensAnalyzerput file
                 // declare a string variable to hold the current line
                 readInputFile(inputReader);
@@ -79,6 +78,7 @@ public class FileAnalysis {
                 exception.printStackTrace();
             }
         }
+
         /**
         * Reads through the input file and creates a token array for each line
         * @param inputReader the BufferedReader for the input file
@@ -114,7 +114,7 @@ public class FileAnalysis {
         public void emptyTokenCheck(String[] tokens) {
             //The for loop that will check through the tokens array
             for (String element : tokens) {
-                if (element.isEmpty() == false) {
+                if (!element.isEmpty() == false) {
                     processTokens(element);
                 }
             }

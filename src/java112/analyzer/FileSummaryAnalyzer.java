@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
+
 /**
 * This class will read the input file then wrtie the summary report to an output file.
 * @author jpabon
@@ -45,7 +46,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(
                     new FileWriter(summaryOutputPath)))) {
             //calling the display method to create the summary.txt file
-            displaySummary(writer, inputFilePath);       
+            displaySummary(writer, inputFilePath);
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
         } catch (Exception exception) {
@@ -61,10 +62,10 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     */
 
     public void displaySummary(PrintWriter writer, String inputFilePath) {
-        //Using the File and SimpleDateFormat 
+        //Using the File and SimpleDateFormat
         File f = new File(inputFilePath);
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-   
+
         writer.println("Application: Project 1 Application");
         writer.println("Author: Jonathan Pabon");
         writer.println("Author Email: jpabon@madisoncollege.edu");
@@ -72,7 +73,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         writer.println("Date of analysis: " + new Date());
         writer.println("Last Modified: " + sdf.format(f.lastModified()));
         writer.println("File Size: " + f.length());
-        writer.println("File URI: file:/home/student/jonny-pabon.txt");
+        writer.println("File URI: " + f.getAbsolutePath());
         writer.println("Total tokens: " + getTotalTokensCount());
     }
 }
