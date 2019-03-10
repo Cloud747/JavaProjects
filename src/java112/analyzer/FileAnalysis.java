@@ -114,7 +114,7 @@ public class FileAnalysis {
         public void emptyTokenCheck(String[] tokens) {
             //The for loop that will check through the tokens array
             for (String element : tokens) {
-                if (!element.isEmpty() == false) {
+                if (!element.isEmpty()) {
                     processTokens(element);
                 }
             }

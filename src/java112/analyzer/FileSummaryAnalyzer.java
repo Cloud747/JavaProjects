@@ -3,6 +3,7 @@ package java112.analyzer;
 import java.io.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
+import java.net.URI;
 
 
 /**
@@ -57,6 +58,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     * This method will display the defined values from the project requirements.
     * located the printWriter class by searching for it on Google - https://www.javatpoint.com/java-printwriter-class
     * obtained ideas from mkyong.com
+    * Checked out https://www.tutorialspoint.com/java/io/file_uri.htm for the URI formatting
     * @param writer uses the PrintWriter package
     * @param inputFilePath the input file that is being passed in.
     */
@@ -65,6 +67,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         //Using the File and SimpleDateFormat
         File f = new File(inputFilePath);
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        URI fileURI = f.toURI();
 
         writer.println("Application: Project 1 Application");
         writer.println("Author: Jonathan Pabon");
@@ -73,7 +76,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         writer.println("Date of analysis: " + new Date());
         writer.println("Last Modified: " + sdf.format(f.lastModified()));
         writer.println("File Size: " + f.length());
-        writer.println("File URI: " + f.getAbsolutePath());
+        writer.println("File URI: " + fileURI);
         writer.println("Total tokens: " + getTotalTokensCount());
     }
 }
