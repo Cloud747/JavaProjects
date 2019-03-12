@@ -22,9 +22,10 @@ public class LabFiveServlet extends HttpServlet {
     * @exception ServletException If there is a servlet failure
     * @param config used for initialization purposes and since we are extending HttpServlet
     */
-    public void init(ServletConfig config) throws ServletException {
-        //using the super since we are overriding the init method
-        super.init(config);
+
+    public void init() throws ServletException {
+
+
         log("Here is when the method executes");
     }
     /**
@@ -39,4 +40,6 @@ public class LabFiveServlet extends HttpServlet {
                 //sends implicit data
         response.setContentType("text/html");
 
+        log("This is to track when this method executes.");
     }
+}

@@ -19,5 +19,5 @@ public interface TokenAnalyzer {
     * @param inputFilePath This is going to be used as a paramter to pass in the inputFilePath
     * @param outputFilePath This is going to be used as a paramter to pass in the outputFilePath
     */
-    void generateOutputFile(String inputFilePath, String outputFilePath);
+    void generateOutputFile(String inputFilePath); //had it shown as String outputFilePath
 }

@@ -12,8 +12,8 @@ import java.util.*;
 */
 public class FileAnalysis {
 
-    //Creating the constant
-    private static final int VALID_ARGUMENT_NUMBER_COUNT = 1;
+    //Changed the argument constant to 2
+    private static final int VALID_ARGUMENT_NUMBER_COUNT = 2;
     //Creating the variables
     private FileSummaryAnalyzer summaryAnalyzer;
     private DistinctTokensAnalyzer distinctAnalyzer;
