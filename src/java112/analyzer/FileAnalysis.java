@@ -16,7 +16,7 @@ public class FileAnalysis implements PropertiesLoader{
     //Changed the argument constant to 2
     private static final int VALID_ARGUMENT_NUMBER_COUNT = 2;
     //Creating the list for TokenAnaylzers
-    private List<Token
+    private List<TokenAnalyzer> tokens;
     /**
     * This run method will instantiate the analyzers
     */
@@ -35,12 +35,15 @@ public class FileAnalysis implements PropertiesLoader{
     public void analyze(String[] arguments) {
 
         if (arguments.length != VALID_ARGUMENT_NUMBER_COUNT) {
-            System.out.println("Please enter one argument on the command line, and input file name");
+            System.out.println("Please enter two arguments on the command line, and input file name");
         } else {
             newObjects();
             openInputFile(arguments[0]);
             writeOutputFiles(arguments[0]);
+            //calling the load properties method with two arguments
+            Properties properties = this.loadProperties(arguments[2]);
         }
+
     }
         /**
         * This method will ensure the ensure the routing of these files is
