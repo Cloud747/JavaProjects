@@ -29,7 +29,7 @@ public class SimpleTextServlet extends HttpServlet {
      //Be sure to check the content type
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                //implicit data 
+                //implicit data
         response.setContentType("text/plain");
         // set the response type before sending data
         PrintWriter  out  = response.getWriter();
@@ -40,8 +40,8 @@ public class SimpleTextServlet extends HttpServlet {
         out.print("<BODY>");
         out.print("<h1>TrivialServlet Here!</h1>");
         out.print("<A HREF=\"index.jsp\">Take me back home</A>");
-        System.out.println("Is this logging?");
-        log("Is this logging?");
+        System.out.println("Is this logging? - this is from a sout");
+        log("Is this logging? <= is from the log");
         out.print("</BODY>");
         out.print("</HTML>");
         out.close();
