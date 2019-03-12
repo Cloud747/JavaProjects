@@ -2,6 +2,7 @@ package java112.analyzer;
 
 import java.io.*;
 import java.util.*;
+import java.utilities.*;
 
 
 /**
@@ -10,13 +11,12 @@ import java.util.*;
 * @author jpabon
 *
 */
-public class FileAnalysis {
+public class FileAnalysis implements PropertiesLoader{
 
     //Changed the argument constant to 2
     private static final int VALID_ARGUMENT_NUMBER_COUNT = 2;
-    //Creating the variables
-    private FileSummaryAnalyzer summaryAnalyzer;
-    private DistinctTokensAnalyzer distinctAnalyzer;
+    //Creating the list for TokenAnaylzers
+    private List<Token
     /**
     * This run method will instantiate the analyzers
     */
