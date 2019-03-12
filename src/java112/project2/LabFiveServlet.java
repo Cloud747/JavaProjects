@@ -17,13 +17,15 @@ import javax.servlet.annotation.*;
 )
 public class LabFiveServlet extends HttpServlet {
     /**
-    *
     * Handles the initilization of the servlet
-    *
-    *
+    * This method is only called once after creating the servlet instance
+    * @exception ServletException If there is a servlet failure
+    * @param config used for initialization purposes and since we are extending HttpServlet
     */
-    public void init() throws ServletException {
-
+    public void init(ServletConfig config) throws ServletException {
+        //using the super since we are overriding the init method
+        super.init(config);
+        log("Here is when the method executes");
     }
     /**
     * Handles HTTP GET requests
@@ -34,5 +36,7 @@ public class LabFiveServlet extends HttpServlet {
     */
     public void doGet (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                //implicit data
-        response.setContentType("text/plain");
+                //sends implicit data
+        response.setContentType("text/html");
+
+    }
