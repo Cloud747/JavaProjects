@@ -17,8 +17,15 @@ public class FileAnalysis implements PropertiesLoader{
     //Changed the argument constant to 2
     private static final int VALID_ARGUMENT_NUMBER_COUNT = 2;
     //Creating the list for TokenAnaylzers
-    private List<TokenAnalyzer> analyzers;
+    private List<TokenAnalyzer> tokens;
+    /**
+    * This run method will instantiate the analyzers
+    */
+    public void newObjects() {
 
+        summaryAnalyzer = new FileSummaryAnalyzer();
+        distinctAnalyzer = new DistinctTokensAnalyzer();
+    }
     /**
     * This analze method will check to ensure the correct number of input has been made.
     * It will also call upon the newObjects method. It will then verify the command readLine
@@ -31,14 +38,11 @@ public class FileAnalysis implements PropertiesLoader{
         if (arguments.length != VALID_ARGUMENT_NUMBER_COUNT) {
             System.out.println("Please enter two arguments on the command line, and input file name");
         } else {
-            Properties properties = this.loadProperties(arguments[1]);
-            analyzers = new ArrayList<TokenAnalyzer>();
-            analyzers.add(new FileSummaryAnalyzer(properties));
-            analyzers.add(new LargestTokensAnalyzer(properties));
-            analyzers.add(new DistinctTokenCountsAnalyzer(properties));
-            analyzers.add(new DistinctTokensAnalyzer(properties));
+            newObjects();
             openInputFile(arguments[0]);
             writeOutputFiles(arguments[0]);
+
+
         }
 
     }
@@ -49,14 +53,14 @@ public class FileAnalysis implements PropertiesLoader{
         *
         */
         public void writeOutputFiles(String inputFilePath) {
-
+            //Talked this over with Kevin from class and he gave me some hints on
+            //finding the missing chacter.
             //Declaring the output files for each analyzer class object
-            //String summaryOutputPath = "output/summary.txt";
-            //String distinctOutputPath = "output/distinct_tokens.txt";
-            //
-            for (TokenAnalyzer analyzer : analyzers) {
-                analyzer.generateOutputFile(inputFilePath);
-            }
+            String summaryOutputPath = "output/summary.txt";
+            String distinctOutputPath = "output/distinct_tokens.txt";
+            //calling each analyzer with the generateOutputFile method
+            summaryAnalyzer.generateOutputFile(inputFilePath, summaryOutputPath);
+            distinctAnalyzer.generateOutputFile(inputFilePath, distinctOutputPath);
         }
         /**
         * Opens the input file and then storing the inputFilePath
@@ -102,11 +106,9 @@ public class FileAnalysis implements PropertiesLoader{
         * This method gets called when no empty tokens are found.
         * @param token the tokens passed in.
         */
-
-        public void processToken(String token) {
-            for (TokenAnalyzer analyzer : analyzers) {
-                analyzer.processToken(token);
-            }
+        public void processTokens(String token) {
+                distinctAnalyzer.processToken(token);
+                summaryAnalyzer.processToken(token);
         }
         /**
         * The machine that will check for empty tokens(keeps the distinct_tokens file from starting
@@ -117,7 +119,7 @@ public class FileAnalysis implements PropertiesLoader{
             //The for loop that will check through the tokens array
             for (String element : tokens) {
                 if (!element.isEmpty()) {
-                    processToken(element);
+                    processTokens(element);
                 }
             }
         }

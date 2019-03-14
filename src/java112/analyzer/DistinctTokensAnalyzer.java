@@ -9,9 +9,17 @@ import java.util.*;
 * @author jpabon
 */
 public class DistinctTokensAnalyzer implements TokenAnalyzer {
-
+    private Properties properties;
     //Creating the instance variables for this class.
     private Set<String> distinctTokens;
+    /**
+    * Analyzer that is referencing the property reference
+    * @param properties
+    */
+    public DistinctTokensAnalyzer(Properties properties) {
+        this();
+        this.properties = properties;
+    }
     /**
     * This is the empty constructor. It is being used for initiailizing the
     * treeset.
@@ -40,10 +48,10 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     * @param distinctOutputPath file output
     *
     */
-    public void generateOutputFile(String inputFilePath, String distinctOutputPath) {
+    public void generateOutputFile(String inputFilePath) {
         try (
             PrintWriter output = new PrintWriter(new BufferedWriter(
-                    new FileWriter(distinctOutputPath)));
+                    new FileWriter(this.properties.getProperty("output.directory") + this.properties.getProperty("output.file.distinct"))))
         ) {
             for (String element : distinctTokens) {
             output.println(element);
@@ -54,6 +62,6 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
         inputOutputException.printStackTrace();
         } catch (Exception exception) {
         exception.printStackTrace();
-        }    
+        }
     }
 }

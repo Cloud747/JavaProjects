@@ -15,6 +15,15 @@ import java.net.URI;
 public class FileSummaryAnalyzer implements TokenAnalyzer {
     //Creating the instance variables
     private int totalTokensCount;
+    private Properties properties;
+    /**
+    * Analyzer that is referencing the property reference
+    * @param properties
+    */
+    public FileSummaryAnalyzer(Properties properties) {
+        this();
+        this.properties = properties;
+    }
     /**
     * Here is where you will be initiailizing the totalTokensCount to 0
     */
@@ -37,15 +46,16 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     public void processToken(String token) {
         totalTokensCount++;
     }
+
     /**
     * using bufferedWriter will write the text to an ouput stream
     * File writer is more efficient
     * @param inputFilePath the input file name
     * @param summaryOutputPath the output file name
     */
-    public void generateOutputFile(String inputFilePath, String summaryOutputPath) {
+    public void generateOutputFile(String inputFilePath) {
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(
-                    new FileWriter(summaryOutputPath)))) {
+                    new FileWriter(this.properties.getProperty("output.directory") + this.properties.getProperty("output.file.summary"))))) {
             //calling the display method to create the summary.txt file
             displaySummary(writer, inputFilePath);
         } catch (IOException inputOutputException) {
