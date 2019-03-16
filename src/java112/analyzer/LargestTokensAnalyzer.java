@@ -22,7 +22,7 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
     }
     /**
     * Analyzer that is referencing the property reference. Obtains the property largest words
-    * @param properties
+    * @param properties passing in the properties from the property file folder
     */
     public LargestTokensAnalyzer(Properties properties) {
         this();
@@ -51,7 +51,6 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
     /**
     * This method generates the output file. Reflects the other analyzer generate output methods.
     * @param  inputFilePath file to read to
-    * @param distinctOutputPath file output
     *
     */
     public void generateOutputFile(String inputFilePath) {

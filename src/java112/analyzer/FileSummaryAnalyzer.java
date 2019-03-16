@@ -15,7 +15,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     private Properties properties;
     /**
     * Analyzer that is referencing the property reference
-    * @param properties
+    * @param properties passing in the properties from the property file folder
     */
     public FileSummaryAnalyzer(Properties properties) {
         this();
