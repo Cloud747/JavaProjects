@@ -38,7 +38,7 @@ public class First112Servlet extends HttpServlet {
         out.print("</HEAD>");
         out.print("<img src='" + request.getContextPath() + "/images/sonic.jpg' alt='Sonic The Hedgehog'/>");
         out.print("<BODY>");
-        out.print("<h1>My own servlet</h1>");
+        out.print("<h1>This is the beginning of a beautiful thing</h1>");
         out.print("<P>Name: Jonathan Pabon</P>");
         out.print("<P>Course: Advanced Java Programming</P>");
         out.print("<A HREF=\"index.jsp\">Take me back home</A>");

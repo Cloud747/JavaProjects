@@ -32,6 +32,7 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
      //Be sure to check the content type
      public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Here is where we are loading the properties and passing in the file path
         Properties properties = this.loadProperties("WEB-INF/classes/project2.properties");
         //implicit data
         response.setContentType("text/html");
@@ -42,7 +43,7 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
         out.print("<HEAD><TITLE>My very own servlet</TITLE></HEAD>");
         out.print("<img src='" + request.getContextPath() + "/images/sonic.jpg' alt='Sonic The Hedgehog'/>");
         out.print("<BODY>"); 
-        out.print("<h1>My own servlet</h1>");
+        out.print("<h1>This is the beginning of a beautiful thing</h1>");
         out.print("<TABLE>");
         out.print("<TR>");
         out.print("<TD>Name:</TD><TD>" + properties.getProperty("author")+ " </TD>");
@@ -70,15 +71,16 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
         out.print("</HTML>");
         out.close();
     }
-
+    /**
+    * This method follows a similar structure to the properties loader class. The idea was captured there and brought to life here.
+    * 
+    *@param filepath passing in the filepath for the load properties
+    */
     public Properties loadProperties(String filepath) {
         ServletContext application = getServletConfig().getServletContext();
         String realPath = application.getRealPath(filepath);
-        //Properties properties = this.loadProperties("project2.properties");
         Properties properties = new Properties();
-        
          try {
-            //String realPath = application.getRealPath("WEB-INF/classes/project2.properties");
             FileInputStream fis = new FileInputStream(realPath);
             properties.load(fis);
         } catch (IOException ioException) {
