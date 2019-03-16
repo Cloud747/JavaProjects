@@ -13,10 +13,10 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
 
     /**
     * This is an empty constructor
-    *
+    * Initialized the distinct token counts
     */
     public DistinctTokenCountsAnalyzer() {
-        distinctTokenCounts = new HashMap<String, Integer>();
+        distinctTokenCounts = new HashMap<String, Integer>(100);
     }
     /**
     *
@@ -27,12 +27,20 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
         return distinctTokenCounts;
     }
     /**
-    *
-    *
+    * Checking to see if the token has been checked before. If so, increments 
+    * the count. If not, it will add it into Distinct token with a value of 1.
+    *  @param token 
     *
     */
     public void processToken(String token) {
-        distinctTokenCounts.put(token,1);
+        if (distinctTokenCounts.containsKey(token)){
+            int count = distinctTokenCounts.get(token);
+            distinctTokenCounts.put(token, ++count);
+        }
+        else {
+            distinctTokenCounts.put(token,1);
+        }
+        
 
     }
     /**
@@ -44,7 +52,9 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
         this.properties = properties;
     }
     /**
-    * This method generates the output file
+    * This method generates the output file.
+    * Added iterator to the Map (needs direction) in order to get the values, you have to get the entry set and from that you 
+    * can use the iterator interface to look at the values in the set. Converted to a TreeMap
     * @param  inputFilePath file to read to
     * @param distinctOutputPath file output
     *
@@ -54,9 +64,12 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
             PrintWriter output = new PrintWriter(new BufferedWriter(
                     new FileWriter(this.properties.getProperty("output.directory") + this.properties.getProperty("output.file.distinct.counts"))))
         ) {
-            //for (String element : distinctTokenCounts) {
-            //output.println(element);
-            //}
+            Set keySet = new TreeMap(distinctTokenCounts).keySet();
+            Iterator iterator = keySet.iterator();
+            while(iterator.hasNext()) {
+                String key = (String)iterator.next();
+                output.println(key + "\t" + distinctTokenCounts.get(key));
+            }
         } catch (FileNotFoundException fileNotFound) {
         fileNotFound.printStackTrace();
         } catch (IOException inputOutputException) {

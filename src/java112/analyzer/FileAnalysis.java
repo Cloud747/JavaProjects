@@ -19,6 +19,7 @@ public class FileAnalysis implements PropertiesLoader{
     //Creating the list for TokenAnaylzers
     private List<TokenAnalyzer> analyzers;
 
+
     /**
     * This analze method will check to ensure the correct number of input has been made.
     * It will also call upon the newObjects method. It will then verify the command readLine
@@ -27,6 +28,7 @@ public class FileAnalysis implements PropertiesLoader{
     *
     */
     public void analyze(String[] arguments) {
+        
 
         if (arguments.length != VALID_ARGUMENT_NUMBER_COUNT) {
             System.out.println("Please enter two arguments on the command line, and input file name");

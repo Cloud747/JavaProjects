@@ -7,7 +7,7 @@ import java.net.URI;
 
 
 /**
-* This class will read the input file then wrtie the summary report to an output file.
+* This class will read the input file then write the summary report to an output file.
 * @author jpabon
 *
 */
@@ -79,9 +79,9 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         URI fileURI = f.toURI();
 
-        writer.println("Application: Project 1 Application");
-        writer.println("Author: Jonathan Pabon");
-        writer.println("Author Email: jpabon@madisoncollege.edu");
+        writer.println("Application: " + properties.getProperty("application.name"));
+        writer.println("Author: " + properties.getProperty("author"));
+        writer.println("Author Email: " + properties.getProperty("author.email.address"));
         writer.println("File: " + f.getAbsolutePath());
         writer.println("Date of analysis: " + new Date());
         writer.println("Last Modified: " + sdf.format(f.lastModified()));
