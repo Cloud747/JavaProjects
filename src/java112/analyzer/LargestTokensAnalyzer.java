@@ -49,7 +49,7 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
         }
     }
     /**
-    * This method generates the output file
+    * This method generates the output file. Reflects the other analyzer generate output methods.
     * @param  inputFilePath file to read to
     * @param distinctOutputPath file output
     *
