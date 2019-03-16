@@ -5,7 +5,6 @@ import java.util.*;
 /**
 * This new analyzer will count the number of unique tokens
 * @author jpabon
-*
 */
 public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
     private Properties properties;
@@ -19,7 +18,6 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
         distinctTokenCounts = new HashMap<String, Integer>(100);
     }
     /**
-    *
     * This will return the
     * @return distinctTokenCounts
     */
@@ -40,8 +38,6 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
         else {
             distinctTokenCounts.put(token,1);
         }
-        
-
     }
     /**
     * Analyzer that is referencing the property reference
