@@ -28,7 +28,6 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
     * Checking to see if the token has been checked before. If so, increments 
     * the count. If not, it will add it into Distinct token with a value of 1.
     *  @param token 
-    *
     */
     public void processToken(String token) {
         if (distinctTokenCounts.containsKey(token)){
@@ -53,7 +52,6 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
     * can use the iterator interface to look at the values in the set. Converted to a TreeMap
     * @param  inputFilePath file to read to
     * @param distinctOutputPath file output
-    *
     */
     public void generateOutputFile(String inputFilePath) {
         try (
