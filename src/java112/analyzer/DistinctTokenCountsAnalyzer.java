@@ -27,6 +27,7 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
     /**
     * Checking to see if the token has been checked before. If so, increments 
     * the count. If not, it will add it into Distinct token with a value of 1.
+    * Yet another great example found from Tutorials point: http://www.tutorialspoint.com/java/util/hashmap_containskey.htm
     *  @param token the token count
     */
     public void processToken(String token) {
@@ -49,7 +50,8 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
     /**
     * This method generates the output file.
     * Added iterator to the Map (needs direction) in order to get the values, you have to get the entry set and from that you 
-    * can use the iterator interface to look at the values in the set. Converted to a TreeMap
+    * can use the iterator interface to look at the values in the set. Converted to a TreeMap.
+    * Iterator example was found on Github and some other tutorials point https://www.tutorialspoint.com/java/java_using_iterator.htm
     * @param  inputFilePath file to read to
     */
     public void generateOutputFile(String inputFilePath) {

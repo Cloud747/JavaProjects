@@ -22,6 +22,7 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
     }
     /**
     * Analyzer that is referencing the property reference. Obtains the property largest words
+    * Example of the parstInt was explained to me on https://www.tutorialspoint.com/java/number_parseint.htm
     * @param properties passing in the properties from the property file folder
     */
     public LargestTokensAnalyzer(Properties properties) {

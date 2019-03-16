@@ -75,7 +75,8 @@ public class FileAnalysis implements PropertiesLoader{
             }
         }
         /**
-        * Reads through the input file and creates a token array for each line
+        * Reads through the input file and creates a token array for each line.
+        * This examples was written from one of my labs.
         * @param inputReader the BufferedReader for the input file
         * @throws IOException this is used to catch the IOException and handle it
         */

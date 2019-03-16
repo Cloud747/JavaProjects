@@ -45,8 +45,9 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     }
 
     /**
-    * using bufferedWriter will write the text to an ouput stream
+    * using bufferedWriter will write the text to an ouput stream. 
     * File writer is more efficient
+    * Found this example one of Mkyong's site on how to get the properties from a file.
     * @param inputFilePath the input file name
     */
     public void generateOutputFile(String inputFilePath) {

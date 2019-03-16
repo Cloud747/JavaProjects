@@ -13,3 +13,13 @@ the anaylzers but as soon as I placed the correct value the normal characters fo
 Lee assisted with clarifying some of the project requirements as I was having issues interpreting it.
 
 Most of the code entered in this project was taken from my unit 1 labs with some minor adjustments. 
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+FOR PROJECT 2:
+
+I was able to find quite a bit of help by searching through Stack Overflow forums and I tend to find the best examples on MKyong's websites. He really dives into the point and provides you with great ideas as not all methods and structure are going to be the same. 
+
+I spent some time in the labs where I was able to ask questions to Tom and he was happy to help me fix a few syntax errors I had been stumbling upon. Overall, this project was nothing short of spectacular and really tested my skills. I feel as long I am building confidence and able to structure out the requirements for my assignments. Lastly, there was some test errors I had encountered when attempting to iterate through the map of values, so I asked on the #help Slack channel and was able to find some assistance in finding the answer to my issue. 

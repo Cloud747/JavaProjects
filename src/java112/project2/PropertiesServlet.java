@@ -39,6 +39,7 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
         // set the response type before sending data
         PrintWriter  out  = response.getWriter();
         //explicit data
+        // found some ideas on the w3schools website to table creations
         out.print("<HTML>");
         out.print("<HEAD><TITLE>My very own servlet</TITLE></HEAD>");
         out.print("<img src='" + request.getContextPath() + "/images/sonic.jpg' alt='Sonic The Hedgehog'/>");
