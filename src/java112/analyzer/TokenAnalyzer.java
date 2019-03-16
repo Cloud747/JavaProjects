@@ -17,7 +17,6 @@ public interface TokenAnalyzer {
     /**
     * This is the generateOutputFile method that gets used in both anaylyzers and file Summary class
     * @param inputFilePath This is going to be used as a paramter to pass in the inputFilePath
-    * @param outputFilePath This is going to be used as a paramter to pass in the outputFilePath
     */
     void generateOutputFile(String inputFilePath); //had it shown as String outputFilePath
 }

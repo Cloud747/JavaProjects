@@ -48,7 +48,6 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     * using bufferedWriter will write the text to an ouput stream
     * File writer is more efficient
     * @param inputFilePath the input file name
-    * @param summaryOutputPath the output file name
     */
     public void generateOutputFile(String inputFilePath) {
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(

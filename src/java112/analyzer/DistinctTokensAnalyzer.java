@@ -14,7 +14,7 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     private Set<String> distinctTokens;
     /**
     * Analyzer that is referencing the property reference
-    * @param properties
+    * @param properties passing in the values from the properties filepath
     */
     public DistinctTokensAnalyzer(Properties properties) {
         this();
