@@ -43,9 +43,8 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
         distinctTokens.add(token);
     }
     /**
-    * This method generates the output file
+    * This method generates the output file. This also is grabbing the properties filepath directories.
     * @param  inputFilePath file to read to
-    * @param distinctOutputPath file output
     *
     */
     public void generateOutputFile(String inputFilePath) {

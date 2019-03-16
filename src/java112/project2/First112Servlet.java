@@ -27,7 +27,7 @@ public class First112Servlet extends HttpServlet {
      //Be sure to check the content type
      public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                //implicit data
+        //implicit data
         response.setContentType("text/html");
         // set the response type before sending data
         PrintWriter  out  = response.getWriter();

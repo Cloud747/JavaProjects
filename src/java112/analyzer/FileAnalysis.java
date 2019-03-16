@@ -18,8 +18,6 @@ public class FileAnalysis implements PropertiesLoader{
     private static final int VALID_ARGUMENT_NUMBER_COUNT = 2;
     //Creating the list for TokenAnaylzers
     private List<TokenAnalyzer> analyzers;
-
-
     /**
     * This analze method will check to ensure the correct number of input has been made.
     * It will also call upon the newObjects method. It will then verify the command readLine
@@ -28,21 +26,22 @@ public class FileAnalysis implements PropertiesLoader{
     *
     */
     public void analyze(String[] arguments) {
-        
-
         if (arguments.length != VALID_ARGUMENT_NUMBER_COUNT) {
             System.out.println("Please enter two arguments on the command line, and input file name");
         } else {
+            //calling the loadproperties method 
             Properties properties = this.loadProperties(arguments[1]);
+            //creating the analyzers arraylist
             analyzers = new ArrayList<TokenAnalyzer>();
+            //add the properties to each of the analyzers.
             analyzers.add(new FileSummaryAnalyzer(properties));
             analyzers.add(new LargestTokensAnalyzer(properties));
             analyzers.add(new DistinctTokenCountsAnalyzer(properties));
             analyzers.add(new DistinctTokensAnalyzer(properties));
+            //calling each of the open and write methods
             openInputFile(arguments[0]);
             writeOutputFiles(arguments[0]);
         }
-
     }
         /**
         * This method will ensure the ensure the routing of these files is
@@ -51,11 +50,6 @@ public class FileAnalysis implements PropertiesLoader{
         *
         */
         public void writeOutputFiles(String inputFilePath) {
-
-            //Declaring the output files for each analyzer class object
-            //String summaryOutputPath = "output/summary.txt";
-            //String distinctOutputPath = "output/distinct_tokens.txt";
-            //
             for (TokenAnalyzer analyzer : analyzers) {
                 analyzer.generateOutputFile(inputFilePath);
             }
@@ -80,7 +74,6 @@ public class FileAnalysis implements PropertiesLoader{
                 exception.printStackTrace();
             }
         }
-
         /**
         * Reads through the input file and creates a token array for each line
         * @param inputReader the BufferedReader for the input file
@@ -104,7 +97,6 @@ public class FileAnalysis implements PropertiesLoader{
         * This method gets called when no empty tokens are found.
         * @param token the tokens passed in.
         */
-
         public void processToken(String token) {
             for (TokenAnalyzer analyzer : analyzers) {
                 analyzer.processToken(token);

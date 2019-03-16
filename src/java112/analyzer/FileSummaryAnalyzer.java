@@ -4,14 +4,11 @@ import java.io.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
 import java.net.URI;
-
-
 /**
 * This class will read the input file then write the summary report to an output file.
 * @author jpabon
 *
 */
-
 public class FileSummaryAnalyzer implements TokenAnalyzer {
     //Creating the instance variables
     private int totalTokensCount;

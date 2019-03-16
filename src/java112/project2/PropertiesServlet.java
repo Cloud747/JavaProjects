@@ -73,7 +73,7 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
     }
     /**
     * This method follows a similar structure to the properties loader class. The idea was captured there and brought to life here.
-    * 
+    * Load properties method is passing in the filepath parameter 
     *@param filepath passing in the filepath for the load properties
     */
     public Properties loadProperties(String filepath) {
