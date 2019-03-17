@@ -18,7 +18,7 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
     * This is an empty constructor. No parameters.
     */
     public LargestTokensAnalyzer() {
-
+        largestTokens = new TreeSet<String>();
     }
     /**
     * Analyzer that is referencing the property reference. Obtains the property largest words
@@ -30,7 +30,6 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
         this.properties = properties;
         String minimumTokenLengthstnr = this.properties.getProperty("largest.words.minimum.length");
         minimumTokenLength = Integer.parseInt(minimumTokenLengthstnr);
-        largestTokens = new TreeSet<String>();
     }
     /**
     *This will return the largest tokens

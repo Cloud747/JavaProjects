@@ -9,7 +9,14 @@ import java.util.*;
 public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
     private Properties properties;
     private Map<String, Integer> distinctTokenCounts;
-
+    /**
+    * Analyzer that is referencing the property reference
+    * @param properties the objects from the property file 
+    */
+    public DistinctTokenCountsAnalyzer(Properties properties) {
+        this();
+        this.properties = properties;
+    }
     /**
     * This is an empty constructor
     * Initialized the distinct token counts
@@ -38,14 +45,6 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
         else {
             distinctTokenCounts.put(token,1);
         }
-    }
-    /**
-    * Analyzer that is referencing the property reference
-    * @param properties the objects from the property file 
-    */
-    public DistinctTokenCountsAnalyzer(Properties properties) {
-        this();
-        this.properties = properties;
     }
     /**
     * This method generates the output file.

@@ -31,17 +31,21 @@ public class FileAnalysis implements PropertiesLoader{
         } else {
             //calling the loadproperties method 
             Properties properties = this.loadProperties(arguments[1]);
-            //creating the analyzers arraylist
-            analyzers = new ArrayList<TokenAnalyzer>();
-            //add the properties to each of the analyzers.
-            analyzers.add(new FileSummaryAnalyzer(properties));
-            analyzers.add(new LargestTokensAnalyzer(properties));
-            analyzers.add(new DistinctTokenCountsAnalyzer(properties));
-            analyzers.add(new DistinctTokensAnalyzer(properties));
+           
             //calling each of the open and write methods
             openInputFile(arguments[0]);
             writeOutputFiles(arguments[0]);
+            addToTheArray();
         }
+    }
+    public void addToTheArray() {
+        //creating the analyzers arraylist
+        analyzers = new ArrayList<TokenAnalyzer>();
+        //add the properties to each of the analyzers.
+        analyzers.add(new FileSummaryAnalyzer(properties));
+        analyzers.add(new LargestTokensAnalyzer(properties));
+        analyzers.add(new DistinctTokenCountsAnalyzer(properties));
+        analyzers.add(new DistinctTokensAnalyzer(properties));
     }
         /**
         * This method will ensure the ensure the routing of these files is
