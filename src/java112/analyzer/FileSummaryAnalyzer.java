@@ -77,7 +77,7 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
         URI fileURI = f.toURI();
 
         writer.println("Application: " + properties.getProperty("application.name"));
-        writer.println("Author: " + properties.getProperty("author"));
+        writer.println("Author Name: " + properties.getProperty("author"));
         writer.println("Author Email: " + properties.getProperty("author.email.address"));
         writer.println("File: " + f.getAbsolutePath());
         writer.println("Date of analysis: " + new Date());

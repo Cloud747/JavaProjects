@@ -47,10 +47,9 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
         }
     }
     /**
-    * This method generates the output file.
-    * Added iterator to the Map (needs direction) in order to get the values, you have to get the entry set and from that you 
-    * can use the iterator interface to look at the values in the set. Converted to a TreeMap.
-    * Iterator example was found on Github and some other tutorials point https://www.tutorialspoint.com/java/java_using_iterator.htm
+    * This method generates the output file. Using the EntrySet 
+    * Took the example from http://paulawaite.com/education/java112/unit2/treeMapDemo/
+    * 
     * @param  inputFilePath file to read to
     */
     public void generateOutputFile(String inputFilePath) {
@@ -58,11 +57,9 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
             PrintWriter output = new PrintWriter(new BufferedWriter(
                     new FileWriter(this.properties.getProperty("output.directory") + this.properties.getProperty("output.file.distinct.counts"))))
         ) {
-            Set keySet = new TreeMap(distinctTokenCounts).keySet();
-            Iterator iterator = keySet.iterator();
-            while(iterator.hasNext()) {
-                String key = (String)iterator.next();
-                output.println(key + "\t" + distinctTokenCounts.get(key));
+            TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>(distinctTokenCounts);
+            for (Map.Entry<String, Integer> entry : treeMap.entrySet()) {
+                System.out.println(entry.getKey() + " : " + entry.getValue());
             }
         } catch (FileNotFoundException fileNotFound) {
         fileNotFound.printStackTrace();

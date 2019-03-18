@@ -33,12 +33,13 @@ public class FileAnalysis implements PropertiesLoader{
             Properties properties = this.loadProperties(arguments[1]);
            
             //calling each of the open and write methods
+            addToTheArray(properties);
             openInputFile(arguments[0]);
             writeOutputFiles(arguments[0]);
-            addToTheArray();
+            
         }
     }
-    public void addToTheArray() {
+    public void addToTheArray(Properties properties) {
         //creating the analyzers arraylist
         analyzers = new ArrayList<TokenAnalyzer>();
         //add the properties to each of the analyzers.
