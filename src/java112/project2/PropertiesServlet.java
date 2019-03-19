@@ -21,6 +21,10 @@ import javax.servlet.annotation.*;
     urlPatterns = { "/properties" }
 )
 public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
+
+    //Creating the instance variables
+    private Properties properties;
+    private Map<String, String> propertiesMap;
     /**
      *  Handles HTTP GET requests.
      *
@@ -33,7 +37,9 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
      public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Here is where we are loading the properties and passing in the file path
-        Properties properties = this.loadProperties("WEB-INF/classes/project2.properties");
+        //Properties properties = this.loadProperties("WEB-INF/classes/project2.properties");
+        String propertiesFilePath = "/project2.properties";
+        properties = loadProperties(propertiesFilePath);
         //implicit data
         response.setContentType("text/html");
         // set the response type before sending data
@@ -65,30 +71,8 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
         out.print("<TD>Course overview:</TD><TD>" + properties.getProperty("description.information")+ "</TD>");
         out.print("</TR>");
         out.print("</TABLE>");
-        out.print("<A HREF=\"index.jsp\">Take me back home</A>");
-        System.out.println("Is this logging? - this is from a sout");
-        log("Is this logging? <= is from the log");
         out.print("</BODY>");
         out.print("</HTML>");
         out.close();
-    }
-    /**
-    * This method follows a similar structure to the properties loader class. The idea was captured there and brought to life here.
-    * Load properties method is passing in the filepath parameter 
-    *@param filepath passing in the filepath for the load properties
-    */
-    public Properties loadProperties(String filepath) {
-        ServletContext application = getServletConfig().getServletContext();
-        String realPath = application.getRealPath(filepath);
-        Properties properties = new Properties();
-         try {
-            FileInputStream fis = new FileInputStream(realPath);
-            properties.load(fis);
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-        return properties;
     }
 }
