@@ -57,9 +57,11 @@ public class DistinctTokenCountsAnalyzer implements TokenAnalyzer{
             PrintWriter output = new PrintWriter(new BufferedWriter(
                     new FileWriter(this.properties.getProperty("output.directory") + this.properties.getProperty("output.file.distinct.counts"))))
         ) {
+            //Entry set returns a set of map.entry (which is a key value pair)
             TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>(distinctTokenCounts);
             for (Map.Entry<String, Integer> entry : treeMap.entrySet()) {
-                System.out.println(entry.getKey() + " : " + entry.getValue());
+                //displaying each of the map entry. 
+                output.println(entry.getKey() + "\t" + entry.getValue());
             }
         } catch (FileNotFoundException fileNotFound) {
         fileNotFound.printStackTrace();
