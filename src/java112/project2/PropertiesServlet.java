@@ -35,10 +35,6 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
      //Be sure to check the content type
      public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Here is where we are loading the properties and passing in the file path
-        //Properties properties = this.loadProperties("WEB-INF/classes/project2.properties");
-        String propertiesFilePath = "/project2.properties";
-        properties = loadProperties(propertiesFilePath);
         //implicit data
         response.setContentType("text/html");
         // set the response type before sending data
@@ -52,7 +48,7 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
         out.print("<h1>This is the beginning of a beautiful thing</h1>");
         out.print("<TABLE>");
         out.print("<TR>");
-        out.print("<TD>Name:</TD><TD>" + properties.getProperty("author")+ " </TD>");
+        out.print("<TD>Name:</TD><TD>" + properties.getProperty("author.name")+ " </TD>");
         out.print("</TR>");
         out.print("<TR>");
         out.print("<TD>Email:</TD><TD>" + properties.getProperty("author.email")+ " </TD>");
@@ -73,5 +69,9 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
         out.print("</BODY>");
         out.print("</HTML>");
         out.close();
+    }
+    public void init() {
+        String propertiesFilePath = "/project2.properties";
+        properties = loadProperties(propertiesFilePath);
     }
 }
