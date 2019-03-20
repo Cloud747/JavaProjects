@@ -13,15 +13,8 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     //Creating the instance variables
     private int totalTokensCount;
     private Properties properties;
-    /**
-    * Analyzer that is referencing the property reference
-    * @param properties passing in the properties from the property file folder
-    */
-    public FileSummaryAnalyzer(Properties properties) {
-        this();
-        this.properties = properties;
-    }
-    /**
+
+        /**
     * Here is where you will be initiailizing the totalTokensCount to 0
     */
     public FileSummaryAnalyzer() {
@@ -34,7 +27,14 @@ public class FileSummaryAnalyzer implements TokenAnalyzer {
     public int getTotalTokensCount() {
         return totalTokensCount;
     }
-
+    /**
+    * Analyzer that is referencing the property reference
+    * @param properties passing in the properties from the property file folder
+    */
+    public FileSummaryAnalyzer(Properties properties) {
+        this();
+        this.properties = properties;
+    }
     /**
     * This method will simply increment the counter when a token has been added
     * to the set created in the DistinctTokensAnalyzer.

@@ -21,6 +21,13 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
         largestTokens = new TreeSet<String>();
     }
     /**
+    *This will return the largest tokens
+    *@return largestTokens
+    */
+    public Set<String> getLargestTokens() {
+        return largestTokens;
+    }
+    /**
     * Analyzer that is referencing the property reference. Obtains the property largest words
     * Example of the parstInt was explained to me on https://www.tutorialspoint.com/java/number_parseint.htm
     * @param properties passing in the properties from the property file folder
@@ -30,13 +37,6 @@ public class LargestTokensAnalyzer implements TokenAnalyzer{
         this.properties = properties;
         String minimumTokenLengthstnr = this.properties.getProperty("largest.words.minimum.length");
         minimumTokenLength = Integer.parseInt(minimumTokenLengthstnr);
-    }
-    /**
-    *This will return the largest tokens
-    *@return largestTokens
-    */
-    public Set<String> getLargestTokens() {
-        return largestTokens;
     }
     /**
      * adds tokens to the largest token array

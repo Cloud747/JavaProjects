@@ -35,23 +35,14 @@
             Thinking is the beginning of philosophy. 
           </p>
           <p>
-            Fusce euismod nisi at libero malesuada consectetuer. Proin laoreet, nunc quis hendrerit
-            gravida, neque leo placerat sapien, et semper tortor leo et urna. Ut tincidunt posuere
-            tortor. Sed tristique, odio at luctus facilisis, nulla quam rhoncus tortor, at congue
-            lacus elit nec metus. Sed tempor sapien ut elit. Donec ac turpis feugiat nisi porta
-            vehicula.
+            When you put your mind into something important, you can't be afraid of failure. Only when you fail, will you 
+            completely cherish the feeling of when you finally succeed. 
           </p>
           <h2>
             I am currently eating popcorn right now.
           </h2>
           <p>
-            Aenean eu lorem at odio placerat fringilla. Cras faucibus velit quis dui. Proin
-            scelerisque orci nec arcu. Pellentesque cursus. Vestibulum ante ipsum primis in
-            faucibus orci luctus et ultrices posuere cubilia Curae; Nullam mattis iaculis purus.
-            Curabitur velit. Vivamus et diam pharetra elit auctor molestie. Suspendisse potenti.
-            Praesent enim. Vivamus at magna. Ut et dolor eu erat facilisis sollicitudin. Duis sed
-            ante. Suspendisse lorem. Suspendisse mollis, dolor sit amet pellentesque sodales, diam
-            risus adipiscing diam, vel ornare lorem pede ac ipsum.
+            This is just some text that I am going to add here for the purposes of this project.
           </p>
         </div>
         <div class="menu">

@@ -12,6 +12,21 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
     private Properties properties;
     //Creating the instance variables for this class.
     private Set<String> distinctTokens;
+
+    /**
+    * This is the empty constructor. It is being used for initiailizing the
+    * treeset.
+    */
+    public DistinctTokensAnalyzer() {
+        distinctTokens = new TreeSet<String>();
+   }
+   /**
+   * This will returns tokens to the treeset
+   * @return distinctTokens
+   */
+   public Set<String> getDistinctTokens() {
+       return distinctTokens;
+   }
     /**
     * Analyzer that is referencing the property reference
     * @param properties passing in the values from the properties filepath
@@ -20,21 +35,6 @@ public class DistinctTokensAnalyzer implements TokenAnalyzer {
         this();
         this.properties = properties;
     }
-    /**
-    * This is the empty constructor. It is being used for initiailizing the
-    * treeset.
-    */
-    public DistinctTokensAnalyzer() {
-         distinctTokens = new TreeSet<String>();
-    }
-    /**
-    * This will returns tokens to the treeset
-    * @return distinctTokens
-    */
-    public Set<String> getDistinctTokens() {
-        return distinctTokens;
-    }
-
     /**
     * This will add tokens to the distinct Set
     * @param token This is the tokens in the treeset

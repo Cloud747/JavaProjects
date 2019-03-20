@@ -24,7 +24,6 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
 
     //Creating the instance variables
     private Properties properties;
-    private Map<String, String> propertiesMap;
     /**
      *  Handles HTTP GET requests.
      *
