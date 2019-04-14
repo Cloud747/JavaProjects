@@ -34,9 +34,9 @@
   <property name="java_hamcrest" value="${project_home}/lib/java-hamcrest.jar" />
   <property name="project_1" value="present"/>
   <property name="project_2" value="present"/>
-  <property name="lab_tests_src" value="${project_home}/src/java112/tests" />
-  <!-- <property name="project_3" value="present"/> -->
+  <property name="project_3" value="present"/>
   <!-- <property name="project_4" value="present"/> -->
+  <property name="lab_tests_src" value="${project_home}/src/java112/tests" />
 
   <target name="init1">
     <!-- Create the time stamp -->
@@ -111,7 +111,9 @@
                      java112/demos/**"
            deprecation="on"
            debug="on"
-           includeAntRuntime="false" />
+           includeAntRuntime="false" >
+       <compilerarg value="-Xlint:unchecked"/>
+     </javac>
   </target>
 
   <target name="compile_labs" depends="init">
@@ -183,7 +185,7 @@
       verbose="false"
       includes="java112/utilities/**,
                 java112/project2/**,
-                java112/project3/**
+                java112/project3/**,
                 java112/project4/**,
                 java112/employee/**"
       excludes="*.jsp,
@@ -224,19 +226,15 @@
       </fileset>
     </copy>
 
-    <!-- copy the css to the build dir-->
+    <!-- copy the css to the build/images dir-->
     <copy todir="${build}">
       <fileset dir="${static}">
         <include name="**/*.css"/>
       </fileset>
     </copy>
 
-    <!-- copy the js to the build dir-->
-    <copy todir="${build}">
-      <fileset dir="${static}">
-        <include name="**/*.js"/>
-      </fileset>
-    </copy>
+    <!-- copy the analyzer.jar file to the lib directory -->
+    <copy file="${analyzer_lib}" todir="${web_lib}"/>
 
   </target>
 
@@ -314,6 +312,7 @@
   </target>
 
 <!--  Testing Targets -->
+
   <target name="build_tests" depends="compile_tests, test_dir_check" if="test_dir_exists">
     <jar destfile="lib/java112Tests.jar">
       <fileset dir="${build}/classes"
@@ -498,8 +497,13 @@
         <pathelement location="${hamcrest}" />
         <pathelement location="${java_hamcrest}" />
         <pathelement location="${junit}" />
+        <pathelement location="${config}" />
       </classpath>
       <formatter type="plain"/>
+      <test name="java112.tests.TokenLengthsAnalyzerProcessTokenTest" />
+      <test name="java112.tests.TokenLengthsAnalyzerOutputTest" />
+      <test name="java112.tests.TokenLocationSearchAnalyzerProcessTokenTest" />
+      <test name="java112.tests.TokenLocationSearchAnalyzerOutputTest" />
     </junit>
   </target>
 
