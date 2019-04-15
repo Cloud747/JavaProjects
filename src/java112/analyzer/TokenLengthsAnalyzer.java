@@ -44,9 +44,28 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
     }
      /**
     * 
-    * @param  inputFilePath file to read to
+    * @param  inputFilePath 
     *
     */
+    public void generateOutputFile(String inputFilePath) {
+        try (
+            PrintWriter output = new PrintWriter(new BufferedWriter(
+                    new FileWriter(this.properties.getProperty("output.directory") + this.properties.getProperty("output.file.token.lengths"))))
+        ) {
+            TreeMap<Integer, Integer> treeMap = (TreeMap<Integer, Integer>)tokenLengths;
+
+            int longestLine = 0;
+        
+            
+
+        } catch (FileNotFoundException fileNotFound) {
+        fileNotFound.printStackTrace();
+        } catch (IOException inputOutputException) {
+        inputOutputException.printStackTrace();
+        } catch (Exception exception) {
+        exception.printStackTrace();
+        }
+    }
     
 
 
