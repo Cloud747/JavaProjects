@@ -55,9 +55,17 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
             TreeMap<Integer, Integer> treeMap = (TreeMap<Integer, Integer>)tokenLengths;
 
             int longestLine = 0;
-        
             
-
+            //Adding this for loop for the map entry
+            for(Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
+                Integer key = entry.getKey();
+                Integer value = entry.getValue();
+                if (value > longestLine) {
+                    longestLine = value;
+                }
+                output.println(key + "\t" + value);
+            }
+            
         } catch (FileNotFoundException fileNotFound) {
         fileNotFound.printStackTrace();
         } catch (IOException inputOutputException) {
