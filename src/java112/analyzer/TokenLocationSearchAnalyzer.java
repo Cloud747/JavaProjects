@@ -42,7 +42,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
     }
     public void processToken(String token) {
         currentTokenLocation++;
-        if (foundLocations.containsKey(token) {
+        if (foundLocations.containsKey(token)) {
             List<Integer> list = foundLocations.get(token);
             list.add(currentTokenLocation);
         } 
@@ -64,7 +64,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
                 String line = "";
                 for (Integer element : value) {
                     line += "" + element + ", ";
-                    if (line.length > 70) {
+                    if (line.length() > 70) {
                         
                     }
                 }

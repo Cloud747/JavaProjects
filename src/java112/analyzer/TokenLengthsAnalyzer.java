@@ -83,7 +83,6 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
                 }
                 output.println(key + "\t" + line);
             }
-
         } catch (FileNotFoundException fileNotFound) {
         fileNotFound.printStackTrace();
         } catch (IOException inputOutputException) {
