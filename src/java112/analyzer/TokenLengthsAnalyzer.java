@@ -72,7 +72,10 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
                 Integer key = entry.getKey();
                 Integer value = entry.getValue();
                 int lineLength = value / unitValue;
-                
+                //this calculation is to ensure that each number is given at least an * if it has a remainder
+                if (value % unitValue != 0) {
+                    lineLength += 1;
+                }
                 //Calculation for incrementing the *
                 String line = "";
                 for (int i = 0; i < lineLength; i++) {
