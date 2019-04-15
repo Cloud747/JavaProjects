@@ -55,8 +55,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
             TreeMap<Integer, Integer> treeMap = (TreeMap<Integer, Integer>)tokenLengths;
 
             int longestLine = 0;
-            
-            //Adding this for loop for the map entry
+        
             for(Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
                 Integer key = entry.getKey();
                 Integer value = entry.getValue();
@@ -65,7 +64,23 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
                 }
                 output.println(key + "\t" + value);
             }
-            
+            int unitValue = longestLine / 80;
+            if (unitValue < 1) {
+                unitValue = 1;
+            }
+            for(Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
+                Integer key = entry.getKey();
+                Integer value = entry.getValue();
+                int lineLength = value / unitValue;
+                
+                //Calculation for incrementing the *
+                String line = "";
+                for (int i = 0; i < lineLength; i++) {
+                    line += "*";
+                }
+                output.println(key + "\t" + line);
+            }
+
         } catch (FileNotFoundException fileNotFound) {
         fileNotFound.printStackTrace();
         } catch (IOException inputOutputException) {
