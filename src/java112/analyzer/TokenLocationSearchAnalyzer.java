@@ -70,6 +70,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
             
             while (searchTokensReader.ready()) {
                 String line = searchTokensReader.readLine();
+                //eliminating leading and trailing spaces with trim and split
                 String[] tokens = line.trim().split("\\s*,\\s");
                 List<Integer> lArray = new ArrayList<Integer>();
                 
@@ -82,7 +83,6 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
                     }
                 }
             }
-        
         } catch (IOException inputOutputException) {
             inputOutputException.printStackTrace();
         } catch (Exception exception) {
