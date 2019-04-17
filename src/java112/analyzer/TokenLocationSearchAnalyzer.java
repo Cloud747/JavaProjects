@@ -25,7 +25,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
         return foundLocations;
     }
     /**
-    * This will return the
+    * LinkedHashMap created to ensure values were maintained in the order they were added.
     * 
     */
     public TokenLocationSearchAnalyzer() {
@@ -55,7 +55,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
         } 
     }
     /**
-     * 
+     *  Used code from http://paulawaite.com/education/java112/unit3/classpath-loading/ 
      * Reading the search tokens file from the classpath and read line by line but each line may have multiple tokens, but we are splitting them into separate
      * tokens. For every search token, created an empty list of found locations. 
      */
