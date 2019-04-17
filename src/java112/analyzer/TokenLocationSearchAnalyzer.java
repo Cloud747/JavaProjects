@@ -71,13 +71,13 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
             while (searchTokensReader.ready()) {
                 String line = searchTokensReader.readLine();
                 String[] tokens = line.trim().split("\\s*,\\s");
-                List<Integer> mapList = new ArrayList<Integer>();
-        
+                List<Integer> lArray = new ArrayList<Integer>();
+                
                 for (String element : tokens) {
                     if (element.isEmpty() == false) {
                 
                         if (getFoundLocations().containsKey(element) == false) {
-                            getFoundLocations().put(element, mapList);
+                            getFoundLocations().put(element, lArray);
                         }
                     }
                 }
