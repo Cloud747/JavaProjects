@@ -43,9 +43,9 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         }
     }
      /**
-    * 
+    * Get the longest line to determine the unit value of an asterisk. 
     * @param  inputFilePath 
-    *
+    * 
     */
     public void generateOutputFile(String inputFilePath) {
         try (
@@ -55,7 +55,8 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
             TreeMap<Integer, Integer> treeMap = (TreeMap<Integer, Integer>)tokenLengths;
 
             int longestLine = 0;
-        
+            
+            // iterating to display the key and length. Used the loop to get the longest line. 
             for(Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
                 Integer key = entry.getKey();
                 Integer value = entry.getValue();
@@ -68,6 +69,8 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
             if (unitValue < 1) {
                 unitValue = 1;
             }
+            // This loop is to display the histogram. Displayed one asterisk per unit value. Took the count of the word length and divided it by the unit value
+            // to determine how many asterisks to show in the histogram. 
             for(Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
                 Integer key = entry.getKey();
                 Integer value = entry.getValue();

@@ -48,6 +48,7 @@ public class FileAnalysis implements PropertiesLoader{
         analyzers.add(new DistinctTokenCountsAnalyzer(properties));
         analyzers.add(new DistinctTokensAnalyzer(properties));
         analyzers.add(new TokenLengthsAnalyzer(properties));
+        analyzers.add(new TokenLocationSearchAnalyzer(properties));
     }
         /**
         * This method will ensure the ensure the routing of these files is
