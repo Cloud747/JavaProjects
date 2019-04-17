@@ -145,6 +145,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
                 }
             }
             for (String line : lines) {
+                //Trying out this typechar character for automatic string conversion
                 outputWriter.printf("%s\n", line);
             }
             outputWriter.println();

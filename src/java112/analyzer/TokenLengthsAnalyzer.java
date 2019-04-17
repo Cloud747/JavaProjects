@@ -22,16 +22,25 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
     public Map<Integer, Integer> getTokenLengths() {
         return tokenLengths;
     }
-
+    /**
+     * 
+     * Constructed a new treemap
+     */
     public TokenLengthsAnalyzer() {
         tokenLengths = new TreeMap<Integer, Integer>();
     }
+    /**
+     *  Analyzer that is referencing the property reference
+     * 
+     * @param properties loading values from the properties 
+     */
     public TokenLengthsAnalyzer(Properties properties) {
         this();
         this.properties = properties;
     }
     /**
     * If this has the key, it will update the count. If no key is found then add the value of 1
+    * Obtained some idea flow by https://stackoverflow.com/questions/1318980/how-to-iterate-over-a-treemap
     * @param token 
     */
     public void processToken(String token) {
@@ -56,8 +65,9 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
 
             int longestLine = 0;
             
-            // iterating to display the key and length. Used the loop to get the longest line. 
-            for(Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
+            // Iterating to display the key and length. Used the loop to get the longest line.Using
+            // map entry with a key value pair
+            for (Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
                 Integer key = entry.getKey();
                 Integer value = entry.getValue();
                 if (value > longestLine) {
@@ -94,7 +104,4 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         exception.printStackTrace();
         }
     }
-    
-
-
 }
