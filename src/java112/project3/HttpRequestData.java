@@ -3,7 +3,7 @@ package java112.project3;
 
 /**
 *
-*
+* Here is where we have our getters and setters for the HTTP request
 * @author jpabon 
 */
 
@@ -22,7 +22,7 @@ public class HttpRequestData {
     private String userAgent;
 
 
-
+    
     public String getRemoteComputerString(){
         return this.remoteComputerString;
     }

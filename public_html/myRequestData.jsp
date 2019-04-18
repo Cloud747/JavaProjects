@@ -22,7 +22,7 @@
       <div id="main_content">
         <div class="content">
           <h2>
-            Welcome to this site.
+            HTTP Details:
           </h2>
           <ul>
             <li>Remote Computer String: ${httpRequestData.remoteComputerString}</li>

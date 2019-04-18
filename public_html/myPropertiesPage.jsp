@@ -22,14 +22,31 @@
       <div id="main_content">
         <div class="content">
           <h2>
-            Welcome to this site.
+            My Class and Project Details.
           </h2>
-          <ul>
-            <li>Author Name: <%= properties.getProperty("author.name") %></li>
+          <table>
+            <tr>
+              <th>Author Name:</th>
+              <td>${author}</td>
             
-          </ul>
-          
-          
+              <th>Author email:</th>
+              <td>${email}</td>
+            
+              <th>Course Name:</th>
+              <td>${course}</td>
+            </tr>
+            <tr>
+              <th>Course Meeting Times:</th>
+              <td>${meeting} </td>
+            
+              <th>Instructor Name:</th>
+              <td>${instructor}</td>
+            
+              <th>Description information:</th>
+              <td>${description}</td>
+            </tr>
+          </table> 
+            
         </div>
         <div class="menu">
           <div class="menu_title">
@@ -62,7 +79,7 @@
                 <a href ="project3-properties" class="menu_link">Properties Page</a>
             </li>
             <li>
-              <a href ="request-servlet?queryParameter=WinterSucks" class="menu_link">Request-Servlet</a>
+              <a href ="request-servlet?queryParameter=Winterisnotfun" class="menu_link">Request-Servlet</a>
             </li>
           
           </ul>

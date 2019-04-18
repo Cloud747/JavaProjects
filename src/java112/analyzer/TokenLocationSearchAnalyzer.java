@@ -17,7 +17,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
     private int currentTokenLocation;
     /**
      * 
-     * 
+     * foundlocations getter
      * @return foundLocations 
      */
     public Map<String, List<Integer>> getFoundLocations() {
@@ -25,7 +25,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
     }
     /**
     * LinkedHashMap created to ensure values were maintained in the order they were added.
-    * 
+    * Found help on the tutorialspoint.com/java/java_linkedhashmap_class.htm
     */
     public TokenLocationSearchAnalyzer() {
         foundLocations = new LinkedHashMap<String, List<Integer>>();

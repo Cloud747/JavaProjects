@@ -37,8 +37,28 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
     throws ServletException, IOException {
         //implicit data
         response.setContentType("text/html");
-        
+        //Set the attribute
         request.setAttribute("properties", properties);
+
+        String author = properties.getProperty("author.name");
+        request.setAttribute("author", author);
+
+        String email = properties.getProperty("author.email");
+        request.setAttribute("email", email);
+
+        String course = properties.getProperty("course.name");
+        request.setAttribute("course", course);
+
+        String meeting = properties.getProperty("course.meeting.times");
+        request.setAttribute("meeting", meeting);
+
+        String instructor = properties.getProperty("instructor.name");
+        request.setAttribute("instructor", instructor);
+
+        String description = properties.getProperty("description.information");
+        request.setAttribute("description", description);
+    
+
         //Create the url
         String url = "/myPropertiesPage.jsp";
 
@@ -47,6 +67,7 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
         dispatcher.forward(request, response);
 
     }
+    //overriding the parent class 
     @Override
     public void init() {
         String propertiesFilePath = "/project3.properties";

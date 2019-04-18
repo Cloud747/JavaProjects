@@ -67,6 +67,7 @@ public class HttpRequestServlet extends HttpServlet {
         dispatcher.forward(request, response);
         
     }
+    //Found this code on https://coderanch.com/t/207250/java/Client-machine for the remote computer string
     private String getComputerName(HttpServletRequest request) {
         String hostName = request.getRemoteHost();
         try {
