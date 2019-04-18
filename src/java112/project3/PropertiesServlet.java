@@ -17,7 +17,7 @@ import javax.servlet.annotation.*;
  */
  //annotation - hints to the server of what needs to be done
 @WebServlet(
-    name = "PropertiesServlet",
+    name = "propertiesServlet",
     urlPatterns = { "/project3-properties" }
 )
 public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
@@ -35,14 +35,21 @@ public class PropertiesServlet extends HttpServlet implements PropertiesLoader {
     //Be sure to check the content type
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-    //implicit data
-    response.setContentType("text/html");
+        //implicit data
+        response.setContentType("text/html");
+        
+        request.setAttribute("properties", properties);
+        //Create the url
+        String url = "/myPropertiesPage.jsp";
 
+        //Forward to jsp page
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
 
-
-
-
+    }
+    @Override
     public void init() {
         String propertiesFilePath = "/project3.properties";
         properties = loadProperties(propertiesFilePath);
     }
+}

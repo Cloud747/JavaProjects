@@ -122,5 +122,5 @@ public class FileAnalysis implements PropertiesLoader{
                     processToken(element);
                 }
             }
-        }
+       }
 }

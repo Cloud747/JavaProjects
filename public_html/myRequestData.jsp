@@ -24,26 +24,21 @@
           <h2>
             Welcome to this site.
           </h2>
-          <p id="about-me">
-            This is about me
-          </p>
-          <p>
-            I live by the quote "knowledge is limited, but your imagination can take you anywhere." I am the architect of 
-            my own destiny.
-          </p>
-          <p id="contact-me">
-            Thinking is the beginning of philosophy. 
-          </p>
-          <p>
-            When you put your mind into something important, you can't be afraid of failure. Only when you fail, will you 
-            completely cherish the feeling of when you finally succeed. 
-          </p>
-          <h2>
-            I am currently eating popcorn right now.
-          </h2>
-          <p>
-            This is just some text that I am going to add here for the purposes of this project.
-          </p>
+          <ul>
+            <li>Remote Computer String: ${httpRequestData.remoteComputerString}</li>
+            <li>Request Method: ${httpRequestData.requestMethod}</li>
+            <li>Request URI: ${httpRequestData.requestUri}</li>
+            <li>Request URL: ${httpRequestData.requestUrl}</li>
+            <li>Request Protocol: ${httpRequestData.requestProtocol}</li>
+            <li>Server Name: ${httpRequestData.serverName}</li>
+            <li>Server Port Number: ${httpRequestData.serverPortNumber}</li>
+            <li>Server Locale: ${httpRequestData.serverLocale}</li>
+            <li>Query String: ${httpRequestData.queryString}</li>
+            <li>Query Parameter: ${httpRequestData.queryParameter}</li>
+            <li>User Agent: ${httpRequestData.userAgent}</li>
+          </ul>
+          
+          
         </div>
         <div class="menu">
           <div class="menu_title">
@@ -73,12 +68,12 @@
                 <a href ="first112" class="menu_link">To my servlet</a>
             </li>
             <li>
-              <a href ="project3-properties" class="menu_link">Properties Page</a>
+                <a href ="project3-properties" class="menu_link">Properties Page</a>
             </li>
             <li>
               <a href ="request-servlet?queryParameter=WinterSucks" class="menu_link">Request-Servlet</a>
             </li>
-            
+          
           </ul>
         </div>
         <div id="clear"></div>

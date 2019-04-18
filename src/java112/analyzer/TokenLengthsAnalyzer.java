@@ -24,7 +24,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
     }
     /**
      * 
-     * Constructed a new treemap
+     * Constructed a new treemap 
      */
     public TokenLengthsAnalyzer() {
         tokenLengths = new TreeMap<Integer, Integer>();
@@ -53,7 +53,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
     }
      /**
     * Get the longest line to determine the unit value of an asterisk. 
-    * @param  inputFilePath 
+    * @param  inputFilePath the file you are inputting into the console
     * 
     */
     public void generateOutputFile(String inputFilePath) {
@@ -65,7 +65,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
 
             int longestLine = 0;
             
-            // Iterating to display the key and length. Used the loop to get the longest line.Using
+            // Iterating to display the key and length. Used the loop to get the longest line.
             // map entry with a key value pair
             for (Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
                 Integer key = entry.getKey();
@@ -79,13 +79,13 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
             if (unitValue < 1) {
                 unitValue = 1;
             }
-            // This loop is to display the histogram. Displayed one asterisk per unit value. Took the count of the word length and divided it by the unit value
+            // This loop is to display the histogram. Displayed one asterisk per unit value. I took the count of the word length and divided it by the unit value
             // to determine how many asterisks to show in the histogram. 
-            for(Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
+            for (Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
                 Integer key = entry.getKey();
                 Integer value = entry.getValue();
                 int lineLength = value / unitValue;
-                //this calculation is to ensure that each number is given at least an * if it has a remainder
+                //This calculation is to ensure that each number is given at least an * if it has a remainder
                 if (value % unitValue != 0) {
                     lineLength += 1;
                 }
