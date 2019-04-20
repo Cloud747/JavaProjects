@@ -23,7 +23,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
         return tokenLengths;
     }
     /**
-     * 
+     * Keeping the lengths sorted which is why we are using a treemap want to display things in order 1,2,3 etc. sorted order
      * Constructed a new treemap 
      */
     public TokenLengthsAnalyzer() {
@@ -61,12 +61,13 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
             PrintWriter output = new PrintWriter(new BufferedWriter(
                     new FileWriter(this.properties.getProperty("output.directory") + this.properties.getProperty("output.file.token.lengths"))))
         ) {
+            //TODO: might change this to elimate casting to treemap
             TreeMap<Integer, Integer> treeMap = (TreeMap<Integer, Integer>)tokenLengths;
 
             int longestLine = 0;
             
             // Iterating to display the key and length. Used the loop to get the longest line.
-            // map entry with a key value pair
+            // map entry with a key value pair -
             for (Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
                 Integer key = entry.getKey();
                 Integer value = entry.getValue();
@@ -75,6 +76,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
                 }
                 output.println(key + "\t" + value);
             }
+            //get unit value to allow for scaling the histogram.
             int unitValue = longestLine / 80;
             if (unitValue < 1) {
                 unitValue = 1;

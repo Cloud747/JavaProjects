@@ -12,12 +12,14 @@ import java.util.*;
 
 public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
 
+    //adding our instance variables for this class
+    //
     private Map<String, List<Integer>> foundLocations;
     private Properties properties;
     private int currentTokenLocation;
     /**
      * 
-     * foundlocations getter
+     * foundlocations method 
      * @return foundLocations 
      */
     public Map<String, List<Integer>> getFoundLocations() {
@@ -42,9 +44,9 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
     }
     /**
      * 
+     * As we process it, we are updating the location of the token. List of all the locations of where it was found. 
+     * @param token processing the string token from the input file. Adding a location entry for the location
      * 
-     * @param token processing the string token from the input file. Updating the current token location.
-     * As we process it, we are updating the location of the token. List of all the locations of where it was found.
      */
     public void processToken(String token) {
         currentTokenLocation++;
@@ -56,7 +58,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
     /**
      *  Used code from http://paulawaite.com/education/java112/unit3/classpath-loading/ 
      * Reading the search tokens file from the classpath and read line by line but each line may have multiple tokens, but we are splitting them into separate
-     * tokens. For every search token, created an empty list of found locations.
+     * tokens. For every search token, created an empty list of found locations. 
      * 
      */
     public void readInSearchTokens() {
@@ -91,7 +93,7 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
      }
     /**
      * 
-     * For this method, it goes through the entry set and I used a linked hash map to maintain the order it was going to be displayed in.
+     * For this method, it goes through the entry set and I used a linked hash map to maintain the order it was going to be displayed in. Outputting the locations for each word
      * Found help through https://www.mkyong.com/java/java-how-to-iterate-a-hashmap/
      * @param inputFilePath processing the string token
      */
@@ -101,10 +103,12 @@ public class TokenLocationSearchAnalyzer implements TokenAnalyzer{
         + properties.getProperty("output.file.token.search.locations");
         
         ArrayList<String> lines = new ArrayList<String>();
+        
         try ( PrintWriter outputWriter =
             new PrintWriter(new BufferedWriter(new FileWriter(outputFile)))) {
         
             //using the map.entry for the key-value pair and to ensure we can work with the map entry. Entryset method will return the map entries
+            // iterating over the entry set of the locations. key and value 
             for (Map.Entry<String, List<Integer>> entry : getFoundLocations().entrySet()) {
                 // If the key is empty - it gets ignored and continues on.
                 if (entry.getKey().trim().length() < 1) {

@@ -27,23 +27,23 @@
           <table>
             <tr>
               <th>Author Name:</th>
-              <td>${author}</td>
+              <td>${properties["author.name"]}</td>
             
               <th>Author email:</th>
-              <td>${email}</td>
+              <td>${properties["author.email"]}</td>
             
               <th>Course Name:</th>
-              <td>${course}</td>
+              <td>${properties["course.name"]}</td>
             </tr>
             <tr>
               <th>Course Meeting Times:</th>
-              <td>${meeting} </td>
+              <td>${properties["course.meeting.times"]} </td>
             
               <th>Instructor Name:</th>
-              <td>${instructor}</td>
+              <td>${properties["instructor.name"]}</td>
             
               <th>Description information:</th>
-              <td>${description}</td>
+              <td>${properties["description.information"]}</td>
             </tr>
           </table> 
             
