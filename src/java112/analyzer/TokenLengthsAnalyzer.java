@@ -63,6 +63,7 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
                     new FileWriter(this.properties.getProperty("output.directory") + this.properties.getProperty("output.file.token.lengths"))))
         ) {
             //using the max method to obtain the largest values
+            // Checked out some ideas using https://www.tutorialspoint.com/java/util/collections_max_comparator.htm
             int longestLine = Collections.max(tokenLengths.values());
 
             // Iterating to display the key and length. Used the loop to get the longest line.

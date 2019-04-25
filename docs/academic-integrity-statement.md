@@ -23,3 +23,9 @@ FOR PROJECT 2:
 I was able to find quite a bit of help by searching through Stack Overflow forums and I tend to find the best examples on MKyong's websites. He really dives into the point and provides you with great ideas as not all methods and structure are going to be the same. 
 
 I spent some time in the labs where I was able to ask questions to Tom and he was happy to help me fix a few syntax errors I had been stumbling upon. Overall, this project was nothing short of spectacular and really tested my skills. I feel as long I am building confidence and able to structure out the requirements for my assignments. Lastly, there was some test errors I had encountered when attempting to iterate through the map of values, so I asked on the #help Slack channel and was able to find some assistance in finding the answer to my issue. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FOR PROJECT 3:
+
+This project was definitely one that I had to do quite a bit of research on. Mainly to obtain a better grasp on how some of the unit 3 concepts are being used which allowed me to implement them effectively here. Some of the concepts that needed some fine tuning was the use of specific maps and applying the map.entries functionality for them. There was a hefty amount of sources on Google that I've found that lead me down the right path while of course others down a rabbit hole. I always graviate towards references by Mkyoung as he is precise and doesn't provide folks with convuloted explanations as some resources on the internet do. I did confide in some of my fellow student peers on certain console error messages I received but was able to figure them out and continue on. With that said, this project certainly challenged my understanding as well as gave me quite the practice in being a researcher (if you will).
