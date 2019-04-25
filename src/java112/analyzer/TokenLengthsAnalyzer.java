@@ -3,6 +3,7 @@ package java112.analyzer;
 import java.io.*;
 import java.util.*;
 
+
 /**
 * This analyzer will determine the length 
 * distribution of the tokens in the input 
@@ -61,19 +62,14 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
             PrintWriter output = new PrintWriter(new BufferedWriter(
                     new FileWriter(this.properties.getProperty("output.directory") + this.properties.getProperty("output.file.token.lengths"))))
         ) {
-            //TODO: might change this to elimate casting to treemap
-            TreeMap<Integer, Integer> treeMap = (TreeMap<Integer, Integer>)tokenLengths;
+            //using the max method to obtain the largest values
+            int longestLine = Collections.max(tokenLengths.values());
 
-            int longestLine = 0;
-            
             // Iterating to display the key and length. Used the loop to get the longest line.
             // map entry with a key value pair -
-            for (Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
+            for (Map.Entry<Integer,Integer> entry : tokenLengths.entrySet()) {
                 Integer key = entry.getKey();
                 Integer value = entry.getValue();
-                if (value > longestLine) {
-                    longestLine = value;
-                }
                 output.println(key + "\t" + value);
             }
             //get unit value to allow for scaling the histogram.
@@ -81,16 +77,22 @@ public class TokenLengthsAnalyzer implements TokenAnalyzer {
             if (unitValue < 1) {
                 unitValue = 1;
             }
+            int asterisksPerUnit = 1;
+            if (longestLine < 80) {
+                asterisksPerUnit = 80 / longestLine;
+            }
             // This loop is to display the histogram. Displayed one asterisk per unit value. I took the count of the word length and divided it by the unit value
             // to determine how many asterisks to show in the histogram. 
-            for (Map.Entry<Integer,Integer> entry : treeMap.entrySet()) {
+            for (Map.Entry<Integer,Integer> entry : tokenLengths.entrySet()) {
                 Integer key = entry.getKey();
                 Integer value = entry.getValue();
+
                 int lineLength = value / unitValue;
                 //This calculation is to ensure that each number is given at least an * if it has a remainder
                 if (value % unitValue != 0) {
                     lineLength += 1;
                 }
+                lineLength = lineLength * asterisksPerUnit;
                 //Calculation for incrementing the *
                 String line = "";
                 for (int i = 0; i < lineLength; i++) {
