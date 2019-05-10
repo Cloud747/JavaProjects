@@ -15,9 +15,13 @@ import java.util.*;
     //Adding the required instance variables
     private String enteredStringType;
     private String enteredStringTerm;
-    private ArrayList<String> resultsList = new ArrayList<String>();
+    private ArrayList<Employee> resultsList = new ArrayList<Employee>();
     private Boolean employeeFound = true;
 
+    //Adding the empty constructor
+    public Search() {
+        
+    }
     //Creating the Getters and Setters for these instance variables
     /**
     * Gets the enteredStringType
@@ -53,14 +57,14 @@ import java.util.*;
     * Gets the resultsList
     * @return resultsList the arraylist resultsList is returned
     */
-    public ArrayList<String> getResultsList(){
+    public ArrayList<Employee> getResultsList(){
         return this.resultsList;
     }   
     /**
     * Sets the resultsList
     * @param resultsList
     */
-    public void setStringList(ArrayList<String> resultsList) {
+    public void setStringList(ArrayList<Employee> resultsList) {
         this.resultsList = resultsList;
     }
 
@@ -77,5 +81,10 @@ import java.util.*;
     */
     public void setEmployeeFound(boolean employeeFound){
         this.employeeFound = employeeFound;
+    }
+
+    //Adding the method 
+    public void addFoundEmployee(Employee employee) {
+        this.resultsList.add(employee);
     }
  }
