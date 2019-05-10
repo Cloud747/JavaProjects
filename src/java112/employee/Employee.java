@@ -20,6 +20,7 @@ import java.sql.*;
     private String roomNumber;
     private String phoneNumber;
 
+    //Creating the Getters and Setters for these instance variables
     /**
     * Gets the employee ID
     * @return employeeID the employee id is returned
