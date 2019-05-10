@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - JDBCInsertEmployee",
+            "request": "launch",
+            "mainClass": "java112.labs4.JDBCInsertEmployee",
+            "projectName": "projects_4caea680"
+        }
+    ]
+}

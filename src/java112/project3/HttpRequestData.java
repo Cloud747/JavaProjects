@@ -175,7 +175,7 @@ public class HttpRequestData {
     }
     /**
     * Gets the user agent name attribute
-    * @return userAgent The stuent's name is returned
+    * @return userAgent The student's name is returned
     */
     public String getUserAgent(){
         return this.userAgent;

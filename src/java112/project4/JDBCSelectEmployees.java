@@ -17,26 +17,32 @@ public class JDBCSelectEmployees {
         ResultSet resultSet = null;
   
         try {
+            //Load the JDBC Driver
             Class.forName("com.mysql.jdbc.Driver");
-  
+            
+            //making the connection - it will 
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost/student", "student", "student");
-  
+            //issue a sql command - creating the statement object 
             statement = connection.createStatement();
-  
+            
+            //Defining the sql that you want to run
             String name = "Smith";
             String queryString = "SELECT emp_id, first_name, last_name"
                     + " FROM employees " + "WHERE last_name like '"
                     + name + "%'";
   
             System.out.println("queryString: " + queryString);
-  
+            
+            //feeding it to the statement object - pass in the queryString
+            // If we wanted to change the DB like an update or insert, or delete that would be executeUpdate()
             resultSet = statement.executeQuery(queryString);
   
             System.out.println();
-  
-            while (resultSet.next()) {
-                String employeeId = resultSet.getString("emp_id");
+            
+            //Using the resultSet.next() iterate through the set (allows you to access the return data but doesn't hold all the data)
+            while (resultSet.next()) { // this will move us to the next row
+                String employeeId = resultSet.getString("emp_id"); 
                 String firstName = resultSet.getString("first_name");
                 String lastName = resultSet.getString("last_name");
                 System.out.println(" Row: " + employeeId + " "
@@ -64,6 +70,7 @@ public class JDBCSelectEmployees {
         } catch (Exception exception) {
             System.err.println("General Error");
             exception.printStackTrace();
+            //need to be in a finally block or try with resources (recommended approach)
         } finally {
             try {
                 if (resultSet != null) {
