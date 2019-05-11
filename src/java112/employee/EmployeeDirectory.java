@@ -1,11 +1,6 @@
 package java112.employee;
 
 import java.util.*;
-
-import org.junit.internal.requests.FilterRequest;
-
-import java112.utilities.PropertiesLoader;
-
 import java.sql.*;
 
 /**
@@ -13,22 +8,22 @@ import java.sql.*;
  * @author jpabon
  */
 public class EmployeeDirectory {
-
+    //Adding instance variables - adding the properties to ensure we have connections to the database. 
+    //Gets loaded by the application startup servlet and passed into this file
     private Properties properties;
-
 
     public EmployeeDirectory(Properties properties) {
         this.properties = properties;
     }
+    //Connection to the the database
     private Connection createConnection() {
-
         //adding the private variable
         String url = properties.getProperty("database.url");
         String driverClass = properties.getProperty("driver.class");
         String username = properties.getProperty("mysql.username");
         String password = properties.getProperty("mysql.password");
         Connection connection = null;
-
+        //
         try {
             //loading the JDBC Driver
             Class.forName(driverClass);
@@ -45,7 +40,14 @@ public class EmployeeDirectory {
     }
     /**
      * https://www.mkyong.com/jdbc/jdbc-preparestatement-example-insert-a-record/
-     * 
+     * Receieve all the properties for an employee record, used the JDBC to add the records to the database
+     * @param
+     * @param 
+     * @param 
+     * @param 
+     * @param 
+     * @param 
+     * @param 
      */
     public void addNewEmployeeRecord(
      String employeeID,
@@ -56,10 +58,11 @@ public class EmployeeDirectory {
      String roomNumber,
      String phoneNumber) {
         Connection connection = createConnection();
-        String insertTableSQL = "INSERT INTO EMPLOYEE"
+        String insertTableSQL = "INSERT INTO employees"
 		+ "(first_name, last_name, ssn, dept, room, phone) VALUES"
         + "(?,?,?,?,?,?)";
         //Declare it after the try method
+        //Used prepared statements because its the recommended way to set parameters for our sql
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(insertTableSQL);
@@ -74,6 +77,7 @@ public class EmployeeDirectory {
         }
         catch (SQLException sqlException) {
                 sqlException.printStackTrace();
+                throw new RuntimeException(sqlException.toString());
         }
         finally {
             try {
@@ -92,6 +96,9 @@ public class EmployeeDirectory {
         }
     }
     /**
+     * Search Type - the attribute name (id, firstmname and last name)
+     * Search Term - the actual value for one of these values
+     * Searching by last name and first name etc.
      * 
      * @param searchTerm
      * @param searchType
@@ -99,6 +106,8 @@ public class EmployeeDirectory {
      */
     public Search findEmployee(String searchTerm, String searchType) {
         Search search = new Search();
+        search.setSearchTerm(searchTerm);
+        search.setSearchType(searchType);
         if (searchType.equals("lastname")) {
             findEmployeeByLastName(search, searchTerm);  
         }
@@ -110,6 +119,11 @@ public class EmployeeDirectory {
         }
         return search;
     }
+    /**
+     * Execting a query where the wehere clause is set by the last name
+     * @param search
+     * @param lastName
+     */
     private void findEmployeeByLastName(Search search, String lastName) {
         Connection connection = createConnection();
         String searchSQL = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone FROM employees "
@@ -192,7 +206,8 @@ public class EmployeeDirectory {
     }
     /**
      * 
-     *
+     * This function is transferring the data from the result set to the search object (has the list of employees).
+     * Search is passed by reference
      * @param connection
      * @param search
      * @param searchSQL
@@ -222,7 +237,7 @@ public class EmployeeDirectory {
                 employee.setDepartment(department);
                 employee.setRoomNumber(roomNumber);
                 employee.setPhoneNumber(phoneNumber);
-
+                //Adding it to the search 
                 search.addFoundEmployee(employee);
             }
         }
@@ -233,9 +248,3 @@ public class EmployeeDirectory {
         }
     }
 }
-/** 
-driver.class=
-database.url=
-mysql.username=
-mysql.password=
-*/

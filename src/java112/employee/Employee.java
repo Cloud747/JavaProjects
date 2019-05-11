@@ -5,12 +5,11 @@ import java.io.*;
 import java.sql.*;
 
 /**
- * 
+ * It's just a place to hodl data (data entity)
  * @author jpabon
  */
 
  public class Employee {
-
     //creating the string private instance variables
     private String employeeID;
     private String firstName;

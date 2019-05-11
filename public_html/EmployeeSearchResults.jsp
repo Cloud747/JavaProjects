@@ -8,8 +8,21 @@
 <body>
 
 <h1>Employee Search Results</h1>
+Search Term: ${searchTerm}
+<br>
+Search Type: ${searchType}
+<br>
 
 <table>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Social Security</th>
+        <th>Department</th>
+        <th>Phone Number</th>
+        <th>Room Number</th>
+    </tr>
     <c:forEach var="employee" items="${employeeList}">
     <tr>
         <td>${employee.employeeID}</td>
