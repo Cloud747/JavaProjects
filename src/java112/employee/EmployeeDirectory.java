@@ -105,43 +105,17 @@ public class EmployeeDirectory {
         if (searchType.equals("firstname")) {
             findEmployeeByFirstName(search, searchTerm);  
         }
+        if (searchType.equals("id")) {
+            findEmployeeByID(search, searchTerm);  
+        }
         return search;
     }
     private void findEmployeeByLastName(Search search, String lastName) {
         Connection connection = createConnection();
-        ResultSet resultSet = null;
-
         String searchSQL = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone FROM employees "
 		+ "where last_name = ?";
-        //Declare it after the try method
-        PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = connection.prepareStatement(searchSQL);
-            preparedStatement.setString(1, lastName);
-            // execute insert SQL statement
-            resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) { // this will move us to the next row
-                String employeeId = resultSet.getString("emp_id"); 
-                String firstName = resultSet.getString("first_name");
-                String socialSecurity = resultSet.getString("ssn");
-                String department = resultSet.getString("dept");
-                String roomNumber = resultSet.getString("room");
-                String phoneNumber = resultSet.getString("phone");
-
-                Employee employee = new Employee();
-                employee.setEmployeeID(employeeId);
-                employee.setFirstName(firstName);
-                employee.setLastName(lastName);
-                employee.setSocialSecurity(socialSecurity);
-                employee.setDepartment(department);
-                employee.setRoomNumber(roomNumber);
-                employee.setPhoneNumber(phoneNumber);
-
-                search.addFoundEmployee(employee);
-                
-            }
-           
+            getEmployeeData(connection, search, searchSQL, lastName);
         }
         catch (SQLException sqlException) {
                 sqlException.printStackTrace();
@@ -149,10 +123,6 @@ public class EmployeeDirectory {
         }
         finally {
             try {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
-                }
-  
                 if (connection != null) {
                     connection.close();
                 }
@@ -170,21 +140,75 @@ public class EmployeeDirectory {
      */
     private void findEmployeeByFirstName(Search search, String firstName) {
         Connection connection = createConnection();
-        ResultSet resultSet = null;
 
         String searchSQL = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone FROM employees "
 		+ "where first_name = ?";
         //Declare it after the try method
-        PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = connection.prepareStatement(searchSQL);
-            preparedStatement.setString(1, firstName);
-            // execute insert SQL statement
-            resultSet = preparedStatement.executeQuery();
+            getEmployeeData(connection, search, searchSQL, firstName);
+        }
+        catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+        }
+        finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }
+    }
+    /**
+     * 
+     * @param search
+     * @param firstName
+     */
+    private void findEmployeeByID(Search search, String Id) {
+        Connection connection = createConnection();
 
+        String searchSQL = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone FROM employees "
+		+ "where emp_id = ?";
+        try {
+            getEmployeeData(connection, search, searchSQL, Id);
+        }
+        catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+        }
+        finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }
+    }
+    /**
+     * 
+     *
+     * @param connection
+     * @param search
+     * @param searchSQL
+     * @param paramValue
+     * @throws SQLException
+     */
+    private void getEmployeeData(Connection connection, Search search, String searchSQL, String paramValue) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(searchSQL);
+        preparedStatement.setString(1, paramValue);
+        // execute insert SQL statement
+        ResultSet resultSet = preparedStatement.executeQuery();
+        try {
             while (resultSet.next()) { // this will move us to the next row
                 String employeeId = resultSet.getString("emp_id"); 
                 String lastName = resultSet.getString("last_name");
+                String firstName = resultSet.getString("first_name");
                 String socialSecurity = resultSet.getString("ssn");
                 String department = resultSet.getString("dept");
                 String roomNumber = resultSet.getString("room");
@@ -202,26 +226,12 @@ public class EmployeeDirectory {
                 search.addFoundEmployee(employee);
             }
         }
-        catch (SQLException sqlException) {
-                sqlException.printStackTrace();
-        }
         finally {
-            try {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
-                }
-  
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException sqlException) {
-                sqlException.printStackTrace();
-            } catch (Exception exception) {
-                exception.printStackTrace();
+            if (preparedStatement != null) {
+                preparedStatement.close();
             }
         }
     }
-
 }
 /** 
 driver.class=
