@@ -7,7 +7,7 @@ import javax.servlet.annotation.*;
 
 /**
  *  This is the servlet for project 4.
- *
+ *  This servlet is sort of a middle servlet to send the results (success or failure) to the actual employee add results jsp
  *@author    jpabon
  */
  //annotation - hints to the server of what needs to be done

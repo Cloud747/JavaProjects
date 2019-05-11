@@ -1,7 +1,4 @@
 package java112.employee;
-
-import java.io.*;
-import java.sql.*;
 import java.util.*;
 
 /**

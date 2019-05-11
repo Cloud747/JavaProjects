@@ -1,17 +1,13 @@
 package java112.project4;
 
 import java.io.*;
-import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.net.*;
 
-import java112.employee.EmployeeDirectory;
-import java112.utilities.PropertiesLoader;
 /**
  *  This is the servlet for project 4.
- *
+ *  This servlet is just another middle servelet between to call the employee search page
  *@author    jpabon
  */
  //annotation - hints to the server of what needs to be done

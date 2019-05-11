@@ -9,7 +9,8 @@ import java112.employee.EmployeeDirectory;
 
 /**
  *  This is the servlet for project 4.
- *
+ *   This servlet is called from the employeeadd jsp form, and it grabs the values from the form and it also validates and redirects to the 
+ *  success page.
  *@author    jpabon
  */
  //annotation - hints to the server of what needs to be done
@@ -32,6 +33,7 @@ public class EmployeeAddResultsServlet extends HttpServlet {
     throws ServletException, IOException {
         ServletContext context = getServletContext();
         EmployeeDirectory employeeDirectory = (EmployeeDirectory)context.getAttribute("employeeDir");
+        //grabbing the values that were entered in the form
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("lastname");
         String department = request.getParameter("department");
@@ -48,11 +50,14 @@ public class EmployeeAddResultsServlet extends HttpServlet {
         }
         else if (department == null || department.length() < 1 || department.length() > 10) {
             errorMessage = "Department is not valid";
-        }
+        } 
+        
+        //If not valid it will send an error message to the results page
         if (errorMessage.length() > 0) {
             request.getSession().setAttribute("resultsMessage", errorMessage);
         }
         else {
+            //if valid it will send a message for success and then call the employee directory to add the value to the database
             request.getSession().setAttribute("resultsMessage", "Successful Add");
             employeeDirectory.addNewEmployeeRecord(" ", firstName, lastName, socialSecurity, department, roomNumber, phoneNumber);
         }

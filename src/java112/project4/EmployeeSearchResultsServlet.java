@@ -9,8 +9,9 @@ import java112.employee.*;
 import java112.employee.EmployeeDirectory;
 /**
  *  This is the servlet for project 4.
- *
- *@author    jpabon
+ *  This servlet takes the values from the search form and sets them to the employee directory to perform a query, then it sends 
+ *  the results to the employee results jsp page. Used the session here
+ * @author    jpabon
  */
  //annotation - hints to the server of what needs to be done
  @WebServlet(
@@ -31,10 +32,14 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         ServletContext context = getServletContext();
+        //getting the directory from the memory (servlet context)
         EmployeeDirectory employeeDirectory = (EmployeeDirectory)context.getAttribute("employeeDir");
+        //getting the search criteria
         String searchTerm = request.getParameter("searchterm");
         String searchType = request.getParameter("searchtype");
+        //query the database and store the result in the search object
         Search search = employeeDirectory.findEmployee(searchTerm, searchType);
+        //setting data up for the jsp page
         request.setAttribute("employeeList", search.getEmployeeList());
         request.setAttribute("searchTerm", search.getSearchTerm());
         request.setAttribute("searchType", search.getSearchType());

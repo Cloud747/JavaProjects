@@ -7,7 +7,7 @@ import javax.servlet.annotation.*;
 
 /**
  *  This is the servlet for project 4.
- *
+ *  Another middle servlet because we aren't calling the jsp directly. 
  *@author    jpabon
  */
  //annotation - hints to the server of what needs to be done
@@ -25,7 +25,7 @@ public class EmployeeAddServlet extends HttpServlet {
      *@exception  ServletException  if there is a Servlet failure
      *@exception  IOException       if there is an IO failure
      */
-    
+    //setting it to the employee add jsp
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         request.setAttribute("errorMessage", "");

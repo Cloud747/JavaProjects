@@ -1,11 +1,8 @@
 package java112.employee;
 
 
-import java.io.*;
-import java.sql.*;
-
 /**
- * It's just a place to hodl data (data entity)
+ * It's just a place to hold data (data entity). Added some code to the build.xml to copy over the jstl jar file. Didn't see a way otherwise.
  * @author jpabon
  */
 

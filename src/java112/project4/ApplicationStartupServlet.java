@@ -5,14 +5,14 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.net.*;
 
 import java112.employee.EmployeeDirectory;
 import java112.utilities.PropertiesLoader;
 /**
  *  This is the servlet for project 4.
- *
- *@author    jpabon
+ *  Uses the load on startup - when the applications starts up and this servlet is executed. The init is executed 
+ *  Where we load our employees directory to ensure it's ready to start querying the database becuase of it's properties
+ * @author    jpabon
  */
  //annotation - hints to the server of what needs to be done
  @WebServlet(
@@ -20,7 +20,6 @@ import java112.utilities.PropertiesLoader;
     urlPatterns = { "/project4-startup" },
     loadOnStartup = 1
 )
-
 public class ApplicationStartupServlet extends HttpServlet implements PropertiesLoader {
     //Creating the instance variables
     private Properties properties;
@@ -37,12 +36,11 @@ public class ApplicationStartupServlet extends HttpServlet implements Properties
     throws ServletException, IOException {
         //implicit data
         response.setContentType("text/html");
-
-        //Forward to jsp page
-        //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        //dispatcher.forward(request, response);
-
     }
+    
+    /**
+     * stores the employee directory and memory (instance of it)
+     */
     //overriding the parent class 
     @Override
     public void init() {
@@ -51,7 +49,7 @@ public class ApplicationStartupServlet extends HttpServlet implements Properties
         getServletContext().setAttribute("project4properties", properties);
         //creating the employee directory with a constructor that has a properties parameter - in the servlet context
         EmployeeDirectory employeeDir = new EmployeeDirectory(properties);
-
+        
         getServletContext().setAttribute("employeeDir", employeeDir);
     }
 }
