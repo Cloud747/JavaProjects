@@ -8,7 +8,7 @@
 <h1>Employee Add Results</h1>
 ${resultsMessage}
 <br>
-<a href="employee-add">Back to employee add</a>
+<a href="employee-add">Back to Employee Add Page</a>
 
 </body>
 </html> 

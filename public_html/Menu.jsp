@@ -22,6 +22,9 @@
           More links:
         </div>
         <ul>
+            <li>
+                <a href ="http://localhost:8080/java112/index.jsp">Home Page</a>
+            </li>
           <li>
               <a href ="first112" class="menu_link">To my servlet</a>
           </li>
@@ -37,7 +40,7 @@
             <li>
                 <a href ="employee-add" class="menu_link">Employee Add</a>
               </li>
-          
+              
           
         </ul>
       </div>

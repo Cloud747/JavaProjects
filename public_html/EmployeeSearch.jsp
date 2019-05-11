@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title>Employee Search</title>
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+<h1>Employee Search Page</h1>
 
 <form action="employee-search-results">
     Search Term:<br>
@@ -17,5 +16,8 @@
     <input type="radio" name="searchtype" value="lastname"> Last Name<br>
     <input type="submit" value="Submit">
 </form> 
+    <li>
+        <a href ="http://localhost:8080/java112/index.jsp">Home Page</a>
+    </li>
 </body>
 </html> 
