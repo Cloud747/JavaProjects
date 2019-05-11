@@ -2,6 +2,8 @@ package java112.employee;
 
 import java.util.*;
 
+import org.junit.internal.requests.FilterRequest;
+
 import java112.utilities.PropertiesLoader;
 
 import java.sql.*;
@@ -97,8 +99,11 @@ public class EmployeeDirectory {
      */
     public Search findEmployee(String searchTerm, String searchType) {
         Search search = new Search();
-        if (searchType.equals("last_name")) {
+        if (searchType.equals("lastname")) {
             findEmployeeByLastName(search, searchTerm);  
+        }
+        if (searchType.equals("firstname")) {
+            findEmployeeByFirstName(search, searchTerm);  
         }
         return search;
     }
@@ -106,7 +111,7 @@ public class EmployeeDirectory {
         Connection connection = createConnection();
         ResultSet resultSet = null;
 
-        String searchSQL = "SELECT first_name, last_name, ssn, dept, room, phone FROM EMPLOYEE "
+        String searchSQL = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone FROM employees "
 		+ "where last_name = ?";
         //Declare it after the try method
         PreparedStatement preparedStatement = null;
@@ -134,10 +139,13 @@ public class EmployeeDirectory {
                 employee.setPhoneNumber(phoneNumber);
 
                 search.addFoundEmployee(employee);
+                
             }
+           
         }
         catch (SQLException sqlException) {
                 sqlException.printStackTrace();
+                throw new RuntimeException(sqlException.toString());
         }
         finally {
             try {
@@ -164,7 +172,7 @@ public class EmployeeDirectory {
         Connection connection = createConnection();
         ResultSet resultSet = null;
 
-        String searchSQL = "SELECT first_name, last_name, ssn, dept, room, phone FROM EMPLOYEE "
+        String searchSQL = "SELECT emp_id, first_name, last_name, ssn, dept, room, phone FROM employees "
 		+ "where first_name = ?";
         //Declare it after the try method
         PreparedStatement preparedStatement = null;

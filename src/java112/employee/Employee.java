@@ -25,7 +25,7 @@ import java.sql.*;
     * Gets the employee ID
     * @return employeeID the employee id is returned
     */
-    public String getEmployeeId(){
+    public String getEmployeeID(){
         return this.employeeID;
     }   
     /**

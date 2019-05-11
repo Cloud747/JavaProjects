@@ -18,5 +18,5 @@ public class JDBCInsertEmployee {
     public static void main(String[] args) {
     Connection conn = null;
    Statement stmt = null;
-   
+    } 
 }

@@ -13,10 +13,10 @@ import java.util.*;
  public class Search {
 
     //Adding the required instance variables
-    private String enteredStringType;
-    private String enteredStringTerm;
-    private ArrayList<Employee> resultsList = new ArrayList<Employee>();
-    private Boolean employeeFound = true;
+    private String searchType;
+    private String searchTerm;
+    private ArrayList<Employee> employeeList = new ArrayList<Employee>();
+    
 
     //Adding the empty constructor
     public Search() {
@@ -27,64 +27,47 @@ import java.util.*;
     * Gets the enteredStringType
     * @return enteredStringType the enteredStringType is returned
     */
-    public String getEnteredStringType(){
-        return this.enteredStringType;
+    public String getSearchType(){
+        return this.searchType;
     }   
     /**
     * Sets the enteredStringType
     * @param enteredStringType
     */
-    public void setEnteredStringType(String enteredStringType){
-        this.enteredStringType = enteredStringType;
+    public void setSearchType(String searchType){
+        this.searchType = searchType;
     }
 
     /**
     * Gets the enteredStringTerm
     * @return enteredStringTerm the enteredStringTerm is returned
     */
-    public String getEnteredStringTerm(){
-        return this.enteredStringTerm;
+    public String getSearchTerm(){
+        return this.searchTerm;
     }   
     /**
     * Sets the enteredStringTerm
     * @param enteredStringTerm
     */
-    public void setEnteredStringTerm(String enteredStringTerm){
-        this.enteredStringTerm = enteredStringTerm;
+    public void setSearchTerm(String searchTerm){
+        this.searchTerm = searchTerm;
     }
-
     /**
     * Gets the resultsList
-    * @return resultsList the arraylist resultsList is returned
+    * @return employeeList the arraylist resultsList is returned
     */
-    public ArrayList<Employee> getResultsList(){
-        return this.resultsList;
+    public ArrayList<Employee> getEmployeeList(){
+        return this.employeeList;
     }   
-    /**
-    * Sets the resultsList
-    * @param resultsList
-    */
-    public void setStringList(ArrayList<Employee> resultsList) {
-        this.resultsList = resultsList;
-    }
-
     /**
     * confirms if the employee has been found
     * @return employeeID the employee id is returned
     */
     public boolean isEmployeeFound(){
-        return this.employeeFound;
+        return this.employeeList.size() > 0;
     }   
-    /**
-    * Sets the employee ID
-    * @param employeeFound
-    */
-    public void setEmployeeFound(boolean employeeFound){
-        this.employeeFound = employeeFound;
-    }
-
     //Adding the method 
     public void addFoundEmployee(Employee employee) {
-        this.resultsList.add(employee);
+        this.employeeList.add(employee);
     }
  }

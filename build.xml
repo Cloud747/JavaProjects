@@ -28,6 +28,7 @@
 <property name="build.compiler" value="modern"/>
 <property name="static" value="public_html"/>
 <property name="analyzer_lib" value="${project_home}/lib/analyzer.jar"/>
+<property name="jstl_lib" value ="${project_home}/lib/jstl-1.2.jar"/>
 <property name="analyzer_tests" value="${project_home}/lib/java112Tests.jar"/>
 <property name="lab_tests" value="${project_home}/lib/java112Tests.jar"/>
 <property name="lab_lib" value="${project_home}/lib/java112Labs.jar"/>
@@ -151,6 +152,7 @@
 </copy>
 <!--  copy the analyzer.jar file to the lib directory  -->
 <copy file="${analyzer_lib}" todir="${web_lib}"/>
+<copy file="${jstl_lib}" todir="${web_lib}"/>
 </target>
 <target name="dist" depends="build_web">
 <war warfile="${dist}/java112.war" webxml="${config}/web.xml" basedir="${build}"></war>
