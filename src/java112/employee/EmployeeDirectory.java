@@ -4,7 +4,7 @@ import java.util.*;
 import java.sql.*;
 
 /**
- * 
+ * This directory  
  * @author jpabon
  */
 public class EmployeeDirectory {
