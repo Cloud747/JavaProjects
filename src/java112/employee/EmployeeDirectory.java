@@ -13,6 +13,7 @@ public class EmployeeDirectory {
     private Properties properties;
 
     public EmployeeDirectory(Properties properties) {
+        //loading the properties here
         this.properties = properties;
     }
     //Connection to the the database
@@ -23,11 +24,11 @@ public class EmployeeDirectory {
         String username = properties.getProperty("mysql.username");
         String password = properties.getProperty("mysql.password");
         Connection connection = null;
-        //
+        //Used notes from http://paulawaite.com/education/java112/unit4/jdbc-basics/ to create the connection to the database
         try {
             //loading the JDBC Driver
             Class.forName(driverClass);
-
+            //defining the connection URL
             connection = DriverManager.getConnection(url, username, password);
         }
         catch (ClassNotFoundException classNotFound) {
@@ -122,7 +123,7 @@ public class EmployeeDirectory {
         return search;
     }
     /**
-     * Execting a query where the wehere clause is set by the last name
+     * Executing a query where the wehere clause is set by the last name
      * @param search - the search is being passed into the method
      * @param lastName - the last name is being passed into the method
      */
@@ -149,9 +150,9 @@ public class EmployeeDirectory {
         }
     }
     /**
-     * 
-     * @param search
-     * @param firstName
+     * Executing a query where the wehere clause is set by the first name
+     * @param search passing in the search 
+     * @param firstName passing in the firstName
      */
     private void findEmployeeByFirstName(Search search, String firstName) {
         Connection connection = createConnection();
@@ -178,9 +179,9 @@ public class EmployeeDirectory {
         }
     }
     /**
-     * 
-     * @param search
-     * @param firstName
+     * Executing a query where the wehere clause is set by the ID
+     * @param search passing in the search parameter
+     * @param firstName passing in the first name parameter
      */
     private void findEmployeeByID(Search search, String Id) {
         Connection connection = createConnection();
@@ -189,7 +190,7 @@ public class EmployeeDirectory {
 		+ "where emp_id = ?";
         try {
             getEmployeeData(connection, search, searchSQL, Id);
-        }
+        }cc
         catch (SQLException sqlException) {
                 sqlException.printStackTrace();
         }
@@ -209,11 +210,11 @@ public class EmployeeDirectory {
      * 
      * This function is transferring the data from the result set to the search object (has the list of employees).
      * Search is passed by reference
-     * @param connection
-     * @param search
-     * @param searchSQL
-     * @param paramValue
-     * @throws SQLException
+     * @param connection passing in the connection parameter
+     * @param search passing in the search parameter
+     * @param searchSQL passing in the searchSQL parameter
+     * @param paramValue passing in the paramValue paramter
+     * @throws SQLException - ensures we are catching all possible exceptions
      */
     private void getEmployeeData(Connection connection, Search search, String searchSQL, String paramValue) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(searchSQL);
