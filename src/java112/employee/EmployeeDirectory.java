@@ -41,13 +41,13 @@ public class EmployeeDirectory {
     /**
      * https://www.mkyong.com/jdbc/jdbc-preparestatement-example-insert-a-record/
      * Receieve all the properties for an employee record, used the JDBC to add the records to the database
-     * @param
-     * @param 
-     * @param 
-     * @param 
-     * @param 
-     * @param 
-     * @param 
+     * @param employeeID - the employee ID will be passed in
+     * @param firstName - the first name will be passed in
+     * @param lastName - the last name will be passed in
+     * @param socialSecurity - the social security will be passed in
+     * @param department - the department will be passed in
+     * @param roomNumber - the room number will be passed in
+     * @param phoneNumber - the phone number for the employee will be passed in
      */
     public void addNewEmployeeRecord(
      String employeeID,
@@ -62,7 +62,8 @@ public class EmployeeDirectory {
 		+ "(first_name, last_name, ssn, dept, room, phone) VALUES"
         + "(?,?,?,?,?,?)";
         //Declare it after the try method
-        //Used prepared statements because its the recommended way to set parameters for our sql
+        //Used prepared statements because its the recommended way to set parameters for our sql 
+        //Used https://www.mkyong.com/jdbc/jdbc-preparestatement-example-select-list-of-the-records/ for reference on using preparedStatements
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(insertTableSQL);
@@ -72,8 +73,9 @@ public class EmployeeDirectory {
             preparedStatement.setString(4, department);
             preparedStatement.setString(5, roomNumber);
             preparedStatement.setString(6, phoneNumber);
-            // execute insert SQL stetement
-            preparedStatement .executeUpdate();
+            // execute insert SQL statement
+            // https://www.mkyong.com/jdbc/jdbc-preparestatement-example-insert-a-record/
+            preparedStatement.executeUpdate();
         }
         catch (SQLException sqlException) {
                 sqlException.printStackTrace();
@@ -102,7 +104,7 @@ public class EmployeeDirectory {
      * 
      * @param searchTerm
      * @param searchType
-     * @return
+     * @return search - the search will be returned
      */
     public Search findEmployee(String searchTerm, String searchType) {
         Search search = new Search();
@@ -121,8 +123,8 @@ public class EmployeeDirectory {
     }
     /**
      * Execting a query where the wehere clause is set by the last name
-     * @param search
-     * @param lastName
+     * @param search - the search is being passed into the method
+     * @param lastName - the last name is being passed into the method
      */
     private void findEmployeeByLastName(Search search, String lastName) {
         Connection connection = createConnection();
@@ -133,7 +135,6 @@ public class EmployeeDirectory {
         }
         catch (SQLException sqlException) {
                 sqlException.printStackTrace();
-                throw new RuntimeException(sqlException.toString());
         }
         finally {
             try {
