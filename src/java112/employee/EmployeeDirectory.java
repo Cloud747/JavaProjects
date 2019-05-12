@@ -4,7 +4,7 @@ import java.util.*;
 import java.sql.*;
 
 /**
- * This directory  
+ * This directory file acts as a data access layer
  * @author jpabon
  */
 public class EmployeeDirectory {
