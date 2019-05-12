@@ -21,36 +21,36 @@ import java.util.*;
     }
     //Creating the Getters and Setters for these instance variables
     /**
-    * Gets the enteredStringType
-    * @return enteredStringType the enteredStringType is returned
+    * Gets the StringType
+    * @return StringType the StringType is returned
     */
     public String getSearchType(){
         return this.searchType;
     }   
     /**
-    * Sets the enteredStringType
-    * @param enteredStringType
+    * Sets the StringType
+    * @param StringType
     */
     public void setSearchType(String searchType){
         this.searchType = searchType;
     }
 
     /**
-    * Gets the enteredStringTerm
-    * @return enteredStringTerm the enteredStringTerm is returned
+    * Gets the StringTerm
+    * @return StringTerm the StringTerm is returned
     */
     public String getSearchTerm(){
         return this.searchTerm;
     }   
     /**
-    * Sets the enteredStringTerm
-    * @param enteredStringTerm
+    * Sets the StringTerm
+    * @param StringTerm
     */
     public void setSearchTerm(String searchTerm){
         this.searchTerm = searchTerm;
     }
     /**
-    * Gets the resultsList
+    * Gets the employeeList
     * @return employeeList the arraylist resultsList is returned
     */
     public ArrayList<Employee> getEmployeeList(){
@@ -63,7 +63,7 @@ import java.util.*;
     public boolean isEmployeeFound(){
         return this.employeeList.size() > 0;
     }   
-    //Adding the method 
+    //Adding the method to add found employees to the list
     public void addFoundEmployee(Employee employee) {
         this.employeeList.add(employee);
     }

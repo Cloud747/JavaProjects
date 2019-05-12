@@ -44,6 +44,7 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
         request.setAttribute("searchTerm", search.getSearchTerm());
         request.setAttribute("searchType", search.getSearchType());
         
+        //used ideas from https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm
         request.getSession().setAttribute("search", search);
         //Create the url
         String url = "/EmployeeSearchResults.jsp";

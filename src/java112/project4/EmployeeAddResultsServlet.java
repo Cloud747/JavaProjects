@@ -53,6 +53,7 @@ public class EmployeeAddResultsServlet extends HttpServlet {
         } 
         
         //If not valid it will send an error message to the results page
+        //used some ideas from http://paulawaite.com/education/java112/unit4/session-tracking/ and https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm
         if (errorMessage.length() > 0) {
             request.getSession().setAttribute("resultsMessage", errorMessage);
         }
