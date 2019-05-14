@@ -80,7 +80,6 @@ public class EmployeeDirectory {
         }
         catch (SQLException sqlException) {
                 sqlException.printStackTrace();
-                throw new RuntimeException(sqlException.toString());
         }
         finally {
             try {
@@ -123,7 +122,7 @@ public class EmployeeDirectory {
         return search;
     }
     /**
-     * Executing a query where the wehere clause is set by the last name
+     * Executing a query where the where clause is set by the last name
      * @param search - the search is being passed into the method
      * @param lastName - the last name is being passed into the method
      */
@@ -190,7 +189,7 @@ public class EmployeeDirectory {
 		+ "where emp_id = ?";
         try {
             getEmployeeData(connection, search, searchSQL, Id);
-        }cc
+        }
         catch (SQLException sqlException) {
                 sqlException.printStackTrace();
         }
