@@ -7,7 +7,7 @@
 <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
+<!-- Templating goes below to ensure the JSP pages have some sort of customizations-->
 <div id="main_content">
     <div class="content">
     <h1>Employee Search Results</h1>
@@ -17,6 +17,7 @@
     Search Type: ${searchType}
     <br>
     <br>
+    <!--Below is the created table and the JSTL for each loop to go through-->
     <table>
         <tr>
             <th>ID</th>

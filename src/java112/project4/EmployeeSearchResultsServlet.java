@@ -8,7 +8,7 @@ import java112.employee.*;
 
 import java112.employee.EmployeeDirectory;
 /**
- *  This is the servlet for project 4.
+ *  This is the servlet for project 4. - this connects to the EmployeeSearch Results JSP
  *  This servlet takes the values from the search form and sets them to the employee directory to perform a query, then it sends 
  *  the results to the employee results jsp page. Used the session here
  * @author    jpabon
@@ -18,7 +18,7 @@ import java112.employee.EmployeeDirectory;
     name = "employeesearchresults", 
     urlPatterns = { "/employee-search-results" }
 )
-
+//has access to get the servlet context due to the inheritence 
 public class EmployeeSearchResultsServlet extends HttpServlet {
     /**
      *  Handles HTTP GET requests.
@@ -48,8 +48,9 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
         request.getSession().setAttribute("search", search);
         //Create the url
         String url = "/EmployeeSearchResults.jsp";
-        //Forward to jsp page
+        //Forward to jsp page - 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        //forwards controls to the JSP
         dispatcher.forward(request, response);
 
     }

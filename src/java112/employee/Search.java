@@ -3,7 +3,8 @@ import java.util.*;
 
 /**
  * 
- * 
+ *  This is the javabean file where these variables and arraylist can be accessed. It acts as an accessor. Reason we are using this is because we are
+ *  allow the getters and setters to passed around.
  * @author jpabon
  */
 

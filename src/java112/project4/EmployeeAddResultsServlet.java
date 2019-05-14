@@ -8,7 +8,7 @@ import javax.servlet.annotation.*;
 import java112.employee.EmployeeDirectory;
 
 /**
- *  This is the servlet for project 4.
+ *  This is the servlet for project 4. Connects to the add post results servlet.
  *   This servlet is called from the employeeadd jsp form, and it grabs the values from the form and it also validates and redirects to the 
  *  success page.
  *@author    jpabon
@@ -40,7 +40,7 @@ public class EmployeeAddResultsServlet extends HttpServlet {
         String socialSecurity = request.getParameter("socialsecurity");
         String phoneNumber = request.getParameter("phonenumber");
         String roomNumber = request.getParameter("roomnumber");
-        //Validating the entered values
+        //Validating the entered values by the employee
         String errorMessage = "";
         if (firstName == null || firstName.length() < 1 || firstName.length() > 25) {
             errorMessage = "First name is not valid";
@@ -62,9 +62,9 @@ public class EmployeeAddResultsServlet extends HttpServlet {
             request.getSession().setAttribute("resultsMessage", "Successful Add");
             employeeDirectory.addNewEmployeeRecord(" ", firstName, lastName, socialSecurity, department, roomNumber, phoneNumber);
         }
-        //Create the url
+        //Create the url - calling the other servlet
         String url = "employee-add-post-results";
-        //redirecting to the URL
+        //redirecting to the URL (when you submit a post - don't want to receive the same message cache no duplicate form submission)
         response.sendRedirect(url);
     }
 }

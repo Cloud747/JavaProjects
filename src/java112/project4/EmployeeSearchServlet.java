@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 /**
- *  This is the servlet for project 4.
+ *  This is the servlet for project 4. - this servlet connects to the employee search jsp
  *  This servlet is just another middle servelet between to call the employee search page
  *@author    jpabon
  */
@@ -32,6 +32,7 @@ public class EmployeeSearchServlet extends HttpServlet {
         String url = "/EmployeeSearch.jsp";
         //Forward to jsp page
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        //passing over the control
         dispatcher.forward(request, response);
 
     }

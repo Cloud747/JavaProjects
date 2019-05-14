@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 /**
- *  This is the servlet for project 4.
+ *  This is the servlet for project 4. Connects to the employee add results jsp
  *  This servlet is sort of a middle servlet to send the results (success or failure) to the actual employee add results jsp
  *@author    jpabon
  */
@@ -32,8 +32,9 @@ public class EmployeeAddPostResultsServlet extends HttpServlet {
         request.setAttribute("resultsMessage", resultsMessage);
         //Create the url
         String url = "/EmployeeAddResults.jsp";
-        //Forward to jsp page
+        //Forward to jsp page - this is global
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        //passing over the controls to the jsp
         dispatcher.forward(request, response);
 
     }

@@ -40,16 +40,19 @@ public class ApplicationStartupServlet extends HttpServlet implements Properties
     
     /**
      * stores the employee directory and memory (instance of it)
+     * This init will run here and load the employees directory to ensure it's ready to start querying the databases because of it's properties
      */
     //overriding the parent class 
     @Override
     public void init() {
+        //creating the properties object and loading the properties file
         String propertiesFilePath = "/project4.properties";
         properties = loadProperties(propertiesFilePath);
+        //storing the properties loader - basically like a hashtable for the purpose of being reusable
         getServletContext().setAttribute("project4properties", properties);
         //creating the employee directory with a constructor that has a properties parameter - in the servlet context
         EmployeeDirectory employeeDir = new EmployeeDirectory(properties);
-        
+        //storing the employee - can be accessed by any other servlet
         getServletContext().setAttribute("employeeDir", employeeDir);
     }
 }

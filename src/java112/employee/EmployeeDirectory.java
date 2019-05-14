@@ -4,7 +4,7 @@ import java.util.*;
 import java.sql.*;
 
 /**
- * This directory file acts as a data access layer
+ * This directory file acts as a data access layer. Middle tier between the application and the database.
  * @author jpabon
  */
 public class EmployeeDirectory {
@@ -58,13 +58,16 @@ public class EmployeeDirectory {
      String department,
      String roomNumber,
      String phoneNumber) {
+         //creating the connection to insert the values into the database
         Connection connection = createConnection();
         String insertTableSQL = "INSERT INTO employees"
 		+ "(first_name, last_name, ssn, dept, room, phone) VALUES"
         + "(?,?,?,?,?,?)";
         //Declare it after the try method
         //Used prepared statements because its the recommended way to set parameters for our sql 
-        //Used https://www.mkyong.com/jdbc/jdbc-preparestatement-example-select-list-of-the-records/ for reference on using preparedStatements
+        //Used https://www.mkyong.com/jdbc/jdbc-preparestatement-example-select-list-of-the-records/ & https://www.tutorialspoint.com/jdbc/jdbc-statements.htm
+        //for reference on using preparedStatements
+        //Used this since I was going to use the SQL statements more than once
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(insertTableSQL);
@@ -98,7 +101,7 @@ public class EmployeeDirectory {
         }
     }
     /**
-     * Search Type - the attribute name (id, firstmname and last name)
+     * Search Type - the attribute name (id, firstname and last name)
      * Search Term - the actual value for one of these values
      * Searching by last name and first name etc.
      * 
@@ -149,7 +152,7 @@ public class EmployeeDirectory {
         }
     }
     /**
-     * Executing a query where the wehere clause is set by the first name
+     * Executing a query where the where clause is set by the first name
      * @param search passing in the search 
      * @param firstName passing in the firstName
      */

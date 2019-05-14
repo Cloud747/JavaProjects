@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 /**
- *  This is the servlet for project 4.
+ *  This is the servlet for project 4. This connects to the employee add JSP file.
  *  Another middle servlet because we aren't calling the jsp directly. 
  *@author    jpabon
  */
@@ -31,8 +31,10 @@ public class EmployeeAddServlet extends HttpServlet {
         request.setAttribute("errorMessage", "");
         //Create the url
         String url = "/EmployeeAdd.jsp";
-        //Forward to jsp page
+        //Forward to jsp page - global oject for the application that can store configuration information.
+        //storing the employee directory because it has connection information.
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        //transferring control
         dispatcher.forward(request, response);
 
     }
