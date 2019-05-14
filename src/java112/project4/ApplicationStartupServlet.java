@@ -9,7 +9,7 @@ import javax.servlet.annotation.*;
 import java112.employee.EmployeeDirectory;
 import java112.utilities.PropertiesLoader;
 /**
- *  This is the servlet for project 4.
+ *  This is the servlet for project 4. 
  *  Uses the load on startup - when the applications starts up and this servlet is executed. The init is executed 
  *  Where we load our employees directory to ensure it's ready to start querying the database becuase of it's properties
  * @author    jpabon
