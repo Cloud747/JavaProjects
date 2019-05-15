@@ -28,6 +28,7 @@ public class EmployeeAddPostResultsServlet extends HttpServlet {
     
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        //casting the variable to convert to a string
         String resultsMessage = (String)request.getSession().getAttribute("resultsMessage");
         request.setAttribute("resultsMessage", resultsMessage);
         //Create the url

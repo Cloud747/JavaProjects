@@ -28,9 +28,9 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
      *@exception  ServletException  if there is a Servlet failure
      *@exception  IOException       if there is an IO failure
      */
-    
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        //Here is where we are setting things up for the results page to display the employee search - found some helpful tips https://stackoverflow.com/questions/1824409/servlet-result-display-in-jsp-page
         ServletContext context = getServletContext();
         //getting the directory from the memory (servlet context)
         EmployeeDirectory employeeDirectory = (EmployeeDirectory)context.getAttribute("employeeDir");
@@ -44,7 +44,7 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
         request.setAttribute("searchTerm", search.getSearchTerm());
         request.setAttribute("searchType", search.getSearchType());
         
-        //used ideas from https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm
+        //used ideas from https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm & http://paulawaite.com/education/java112/unit4/getting-an-attribute-servlet/
         request.getSession().setAttribute("search", search);
         //Create the url
         String url = "/EmployeeSearchResults.jsp";
