@@ -31,12 +31,15 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         //Here is where we are setting things up for the results page to display the employee search - found some helpful tips https://stackoverflow.com/questions/1824409/servlet-result-display-in-jsp-page
+        //Getting the local variable that references the servletcontext
         ServletContext context = getServletContext();
         //getting the directory from the memory (servlet context)
         EmployeeDirectory employeeDirectory = (EmployeeDirectory)context.getAttribute("employeeDir");
+        
         //getting the search criteria
         String searchTerm = request.getParameter("searchterm");
         String searchType = request.getParameter("searchtype");
+
         //query the database and store the result in the search object
         Search search = employeeDirectory.findEmployee(searchTerm, searchType);
         //setting data up for the jsp page
@@ -44,12 +47,16 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
         request.setAttribute("searchTerm", search.getSearchTerm());
         request.setAttribute("searchType", search.getSearchType());
         
+        //Placing the search object into the session
         //used ideas from https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm & http://paulawaite.com/education/java112/unit4/getting-an-attribute-servlet/
         request.getSession().setAttribute("search", search);
+        
         //Create the url
         String url = "/EmployeeSearchResults.jsp";
+        
         //Forward to jsp page - 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        
         //forwards controls to the JSP
         dispatcher.forward(request, response);
 

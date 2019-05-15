@@ -8,7 +8,7 @@ import javax.servlet.annotation.*;
 import java112.employee.EmployeeDirectory;
 
 /**
- *  This is the servlet for project 4. Connects to the add post results servlet.
+ *  This is the servlet for project 4. Connects to the add post results servlet. VALIDATION 
  *   This servlet is called from the employeeadd jsp form, and it grabs the values from the form and it also validates and redirects to the 
  *  success page.
  *@author    jpabon
