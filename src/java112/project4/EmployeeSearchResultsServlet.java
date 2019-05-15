@@ -23,10 +23,10 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
     /**
      *  Handles HTTP GET requests.
      *
-     *@param  request                   the HttpServletRequest object
-     *@param  response                   the HttpServletResponse object
-     *@exception  ServletException  if there is a Servlet failure
-     *@exception  IOException       if there is an IO failure
+     * @param  request                   the HttpServletRequest object
+     * @param  response                   the HttpServletResponse object
+     * @exception  ServletException  if there is a Servlet failure
+     * @exception  IOException       if there is an IO failure
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
@@ -36,7 +36,8 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
         //getting the directory from the memory (servlet context)
         EmployeeDirectory employeeDirectory = (EmployeeDirectory)context.getAttribute("employeeDir");
         
-        //getting the search criteria
+        //Used help from this https://www.studytonight.com/servlet/attribute.php
+        //getting the search criteria - What we be passed from the client to the server
         String searchTerm = request.getParameter("searchterm");
         String searchType = request.getParameter("searchtype");
 
@@ -48,7 +49,7 @@ public class EmployeeSearchResultsServlet extends HttpServlet {
         request.setAttribute("searchType", search.getSearchType());
         
         //Placing the search object into the session
-        //used ideas from https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm & http://paulawaite.com/education/java112/unit4/getting-an-attribute-servlet/
+        //Used ideas from https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm & http://paulawaite.com/education/java112/unit4/getting-an-attribute-servlet/
         request.getSession().setAttribute("search", search);
         
         //Create the url

@@ -1,6 +1,5 @@
 package java112.employee;
 
-
 /**
  * This is the employee class. just a place to hold data (data entity). 
  * Added some code to the build.xml to copy over the jstl jar file. Didn't see a way otherwise.
